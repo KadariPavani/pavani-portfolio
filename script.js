@@ -1,199 +1,441 @@
-// Mobile Menu Toggle
-const mobileMenuBtn = document.querySelector('.mobile-menu-btn');
-const mobileMenu = document.querySelector('.mobile-menu');
-const body = document.body;
+// Portfolio JavaScript with Modal and Comment Functionality
 
-mobileMenuBtn.addEventListener('click', () => {
-    mobileMenuBtn.classList.toggle('active');
-    mobileMenu.classList.toggle('active');
-    body.style.overflow = mobileMenu.classList.contains('active') ? 'hidden' : '';
+// Project data
+const projectsData = {
+    project1: {
+        title: "Hexcape",
+        subtitle: "A game that combines iOS and physical puzzle game, using 3D, 360 world view, and AR.",
+        teamSize: "Team of 6",
+        explanation: "Hexcape is a unique puzzle game that combines a digital experience with physical elements such as cards and a map. Players must work together as a team to progress through the story, which is inspired by Greek mythology and involves helping a girl become a demigod. The game uses various technologies to provide an immersive gaming experience, including QR codes, image recognition, ARKit, RealityKit, and SceneKit.",
+        goals: "As a team of board game lovers, we want to bring our love of board games to the next level by using innovative technologies such as QR codes, image recognition, ARKit, RealityKit, and SceneKit. Our goal is to create a game that is engaging and immersive, allowing players to feel like they are truly part of the story and the world we have created. We want to bridge the gap between digital and physical gaming experiences.",
+        techStack: "Swift, ARKit, RealityKit, SceneKit, QR Code Scanning, Image Recognition, iOS SDK",
+        features: [
+            "QR Code Scanning",
+            "Image Recognition",
+            "Augmented Reality with ARKit",
+            "360 World with RealityKit",
+            "Interactive 3D Puzzle Box",
+            "Multiple Endings"
+        ]
+    },
+    project2: {
+        title: "WeatherWise",
+        subtitle: "A weather forecasting app built with React & OpenWeather API.",
+        teamSize: "Team of 2",
+        explanation: "WeatherWise is a comprehensive weather application that provides real-time weather data and forecasts. The app features a clean, intuitive interface that displays current weather conditions, hourly forecasts, and extended 7-day predictions. Built with React for optimal performance and user experience.",
+        goals: "The primary goal was to create a user-friendly weather application that provides accurate and timely weather information. We wanted to implement modern design principles while ensuring the app remains accessible across all devices and screen sizes.",
+        techStack: "React.js, OpenWeather API, Axios, CSS3, JavaScript ES6+",
+        features: [
+            "Real-time weather data and forecasts",
+            "Location-based weather detection",
+            "7-day extended weather forecast",
+            "Interactive weather maps",
+            "Responsive design for all devices",
+            "Dark/Light mode toggle",
+            "Weather alerts and notifications"
+        ]
+    },
+    project3: {
+        title: "FitTrack",
+        subtitle: "A fitness tracking app with Python & Django.",
+        teamSize: "Solo Project",
+        explanation: "FitTrack is a comprehensive fitness tracking application that helps users monitor their workout routines, track progress, and achieve their fitness goals. The app provides detailed analytics and personalized recommendations based on user activity.",
+        goals: "The main objective was to create a motivating fitness companion that would help users stay consistent with their workout routines. We aimed to provide comprehensive tracking capabilities while maintaining a simple and engaging user interface.",
+        techStack: "Python, Django, PostgreSQL, Django REST Framework, Chart.js",
+        features: [
+            "Workout routine tracking",
+            "Progress analytics and charts",
+            "Goal setting and achievements",
+            "Exercise library and tutorials",
+            "Social features and challenges",
+            "Nutrition tracking integration",
+            "Wearable device synchronization"
+        ]
+    }
+};
+
+// DOM Elements
+let mobileMenuBtn, mobileMenu, projectModal, modalContent;
+
+// Track last view timestamp per project to prevent double increments
+const viewTimestamps = {};
+
+// Initialize the application
+document.addEventListener('DOMContentLoaded', function() {
+    initializeElements();
+    initializeEventListeners();
+    initializeProjectStats();
 });
 
-// Close mobile menu when clicking outside
-document.addEventListener('click', (e) => {
-    if (!mobileMenu.contains(e.target) && !mobileMenuBtn.contains(e.target)) {
-        mobileMenuBtn.classList.remove('active');
+function initializeElements() {
+    mobileMenuBtn = document.querySelector('.mobile-menu-btn');
+    mobileMenu = document.querySelector('.mobile-menu');
+    projectModal = document.querySelector('.project-modal');
+    modalContent = document.querySelector('.project-modal-content');
+}
+
+function initializeEventListeners() {
+    // Remove existing event listeners to prevent duplicates
+    const projectButtons = document.querySelectorAll('.btn-project');
+    projectButtons.forEach(button => {
+        button.removeEventListener('click', handleProjectButtonClick);
+        button.addEventListener('click', handleProjectButtonClick);
+    });
+
+    // Mobile menu toggle
+    if (mobileMenuBtn) {
+        mobileMenuBtn.removeEventListener('click', toggleMobileMenu);
+        mobileMenuBtn.addEventListener('click', toggleMobileMenu);
+    }
+
+    // Mobile menu navigation
+    const menuItems = document.querySelectorAll('.menu-item');
+    menuItems.forEach(item => {
+        item.removeEventListener('click', handleMenuItemClick);
+        item.addEventListener('click', handleMenuItemClick);
+    });
+
+    // Modal close functionality
+    if (projectModal) {
+        const closeBtn = projectModal.querySelector('.modal-close');
+        if (closeBtn) {
+            closeBtn.removeEventListener('click', closeProjectModal);
+            closeBtn.addEventListener('click', closeProjectModal);
+        }
+
+        // Close modal when clicking outside
+        projectModal.removeEventListener('click', handleModalClickOutside);
+        projectModal.addEventListener('click', handleModalClickOutside);
+    }
+
+    // Hero buttons functionality
+    const heroButtons = document.querySelectorAll('.hero-buttons .btn-primary, .hero-buttons .btn-secondary');
+    heroButtons.forEach(button => {
+        button.removeEventListener('click', handleHeroButtonClick);
+        button.addEventListener('click', handleHeroButtonClick);
+    });
+
+    // See more projects button
+    const seeMoreBtn = document.querySelector('.btn-see-more');
+    if (seeMoreBtn) {
+        seeMoreBtn.removeEventListener('click', handleSeeMoreClick);
+        seeMoreBtn.addEventListener('click', handleSeeMoreClick);
+    }
+
+    // Navigation active state management
+    const navLinks = document.querySelectorAll('.nav-link');
+    navLinks.forEach(link => {
+        link.removeEventListener('click', handleNavLinkClick);
+        link.addEventListener('click', handleNavLinkClick);
+    });
+
+    // Smooth scrolling for anchor links
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+        anchor.removeEventListener('click', handleAnchorClick);
+        anchor.addEventListener('click', handleAnchorClick);
+    });
+}
+
+// Event handler functions
+function handleProjectButtonClick() {
+    const projectCard = this.closest('.project-card');
+    const projectId = projectCard.getAttribute('data-project-id');
+    openProjectModal(projectId);
+}
+
+function handleMenuItemClick() {
+    const href = this.getAttribute('data-href');
+    if (href) {
+        if (href.includes('#')) {
+            const targetId = href.split('#')[1];
+            const targetElement = document.getElementById(targetId);
+            if (targetElement) {
+                targetElement.scrollIntoView({ behavior: 'smooth' });
+            }
+        } else {
+            window.location.href = href;
+        }
+        closeMobileMenu();
+    }
+}
+
+function handleModalClickOutside(e) {
+    if (e.target === projectModal) {
+        closeProjectModal();
+    }
+}
+
+function handleHeroButtonClick() {
+    if (this.textContent.includes('View Projects')) {
+        const projectsSection = document.getElementById('projects');
+        if (projectsSection) {
+            projectsSection.scrollIntoView({ behavior: 'smooth' });
+        }
+    } else if (this.textContent.includes('More about me')) {
+        const aboutSection = document.getElementById('about');
+        if (aboutSection) {
+            aboutSection.scrollIntoView({ behavior: 'smooth' });
+        }
+    }
+}
+
+function handleSeeMoreClick() {
+    window.location.href = 'projects.html';
+}
+
+function handleNavLinkClick(e) {
+    const navLinks = document.querySelectorAll('.nav-link');
+    navLinks.forEach(l => l.classList.remove('active'));
+    this.classList.add('active');
+}
+
+function handleAnchorClick(e) {
+    e.preventDefault();
+    const target = document.querySelector(this.getAttribute('href'));
+    if (target) {
+        target.scrollIntoView({
+            behavior: 'smooth'
+        });
+    }
+}
+
+function toggleMobileMenu() {
+    if (mobileMenu && mobileMenuBtn) {
+        mobileMenu.classList.toggle('active');
+        mobileMenuBtn.classList.toggle('active');
+        
+        document.body.style.overflow = mobileMenu.classList.contains('active') ? 'hidden' : '';
+    }
+}
+
+function closeMobileMenu() {
+    if (mobileMenu && mobileMenuBtn) {
         mobileMenu.classList.remove('active');
-        body.style.overflow = '';
+        mobileMenuBtn.classList.remove('active');
+        document.body.style.overflow = '';
+    }
+}
+
+function initializeProjectStats() {
+    const projectCards = document.querySelectorAll('.project-card');
+    const stats = JSON.parse(localStorage.getItem('projectStats') || '{}');
+    
+    // Initialize stats for missing projects only
+    Object.keys(projectsData).forEach(projectId => {
+        if (!stats[projectId]) {
+            stats[projectId] = { views: 0, likes: 0 };
+        }
+    });
+    localStorage.setItem('projectStats', JSON.stringify(stats));
+
+    projectCards.forEach(card => {
+        const projectId = card.getAttribute('data-project-id');
+        const stat = stats[projectId];
+        
+        if (stat) {
+            const viewCount = card.querySelector('.view-count');
+            const likeCount = card.querySelector('.like-count');
+            
+            if (viewCount) viewCount.textContent = stat.views;
+            if (likeCount) likeCount.textContent = stat.likes;
+        }
+    });
+}
+
+function openProjectModal(projectId) {
+    const projectData = projectsData[projectId];
+    if (!projectData || !projectModal) return;
+
+    // Prevent double view increment within 1 second
+    const now = Date.now();
+    if (viewTimestamps[projectId] && now - viewTimestamps[projectId] < 1000) {
+        return;
+    }
+    viewTimestamps[projectId] = now;
+
+    const modalTitle = projectModal.querySelector('.modal-title');
+    const modalSubtitle = projectModal.querySelector('.modal-subtitle');
+    const modalTeamSize = projectModal.querySelector('.modal-stats .team-size');
+    const modalViewCount = projectModal.querySelector('.modal-stats .view-count');
+    const modalLikeCount = projectModal.querySelector('.modal-stats .like-count');
+    const modalLikeButton = projectModal.querySelector('.modal-stats .like-button');
+    const modalExplanation = projectModal.querySelector('.modal-explanation');
+    const modalGoals = projectModal.querySelector('.modal-goals');
+    const modalTech = projectModal.querySelector('.modal-tech');
+    const modalFeatures = projectModal.querySelector('.modal-features');
+    const commentInput = projectModal.querySelector('.comment-input');
+    const commentSubmit = projectModal.querySelector('.comment-submit');
+    const commentList = projectModal.querySelector('.comment-list');
+
+    if (modalTitle) modalTitle.textContent = projectData.title;
+    if (modalSubtitle) modalSubtitle.textContent = projectData.subtitle;
+    if (modalTeamSize) modalTeamSize.textContent = projectData.teamSize;
+    if (modalExplanation) modalExplanation.textContent = projectData.explanation;
+    if (modalGoals) modalGoals.textContent = projectData.goals;
+    if (modalTech) modalTech.textContent = projectData.techStack;
+
+    if (modalFeatures && projectData.features) {
+        modalFeatures.innerHTML = '';
+        projectData.features.forEach(feature => {
+            const li = document.createElement('li');
+            li.textContent = feature;
+            modalFeatures.appendChild(li);
+        });
+    }
+
+    // Update views
+    const stats = JSON.parse(localStorage.getItem('projectStats') || '{}');
+    if (!stats[projectId]) {
+        stats[projectId] = { views: 0, likes: 0 };
+    }
+    stats[projectId].views += 1;
+    localStorage.setItem('projectStats', JSON.stringify(stats));
+
+    if (modalViewCount) modalViewCount.textContent = stats[projectId].views;
+    if (modalLikeCount) modalLikeCount.textContent = stats[projectId].likes;
+
+    // Update project card counts
+    const projectCard = document.querySelector(`[data-project-id="${projectId}"]`);
+    if (projectCard) {
+        const cardViewCount = projectCard.querySelector('.view-count');
+        const cardLikeCount = projectCard.querySelector('.like-count');
+        if (cardViewCount) cardViewCount.textContent = stats[projectId].views;
+        if (cardLikeCount) cardLikeCount.textContent = stats[projectId].likes;
+    }
+
+    // Handle like button
+    const likedProjects = JSON.parse(localStorage.getItem('likedProjects') || '[]');
+    const hasLiked = likedProjects.includes(projectId);
+    if (modalLikeButton) {
+        modalLikeButton.setAttribute('data-liked', hasLiked ? 'true' : 'false');
+        modalLikeButton.disabled = hasLiked;
+        if (!hasLiked) {
+            modalLikeButton.onclick = () => likeProject(projectId, modalLikeCount, projectCard ? projectCard.querySelector('.like-count') : null, modalLikeButton);
+        }
+    }
+
+    // Initialize comments
+    if (commentList) {
+        displayComments(projectId, commentList);
+    }
+
+    // Handle comment submission
+    if (commentSubmit && commentInput) {
+        commentSubmit.onclick = () => {
+            const commentText = commentInput.value.trim();
+            if (commentText) {
+                addComment(projectId, commentText);
+                commentInput.value = '';
+                displayComments(projectId, commentList);
+            }
+        };
+    }
+
+    projectModal.classList.add('active');
+    document.body.style.overflow = 'hidden';
+}
+
+function closeProjectModal() {
+    if (projectModal) {
+        projectModal.classList.remove('active');
+        document.body.style.overflow = '';
+    }
+}
+
+// Like functionality
+function likeProject(projectId, modalLikeCount, cardLikeCount, likeButton) {
+    const stats = JSON.parse(localStorage.getItem('projectStats') || '{}');
+    const likedProjects = JSON.parse(localStorage.getItem('likedProjects') || '[]');
+
+    if (!stats[projectId]) {
+        stats[projectId] = { views: 0, likes: 0 };
+    }
+    if (!likedProjects.includes(projectId)) {
+        stats[projectId].likes += 1;
+        likedProjects.push(projectId);
+        localStorage.setItem('projectStats', JSON.stringify(stats));
+        localStorage.setItem('likedProjects', JSON.stringify(likedProjects));
+
+        if (modalLikeCount) modalLikeCount.textContent = stats[projectId].likes;
+        if (cardLikeCount) cardLikeCount.textContent = stats[projectId].likes;
+        if (likeButton) {
+            likeButton.setAttribute('data-liked', 'true');
+            likeButton.disabled = true;
+        }
+    }
+}
+
+// Comment functionality
+function addComment(projectId, text) {
+    const comments = JSON.parse(localStorage.getItem('projectComments') || '{}');
+    if (!comments[projectId]) {
+        comments[projectId] = [];
+    }
+    comments[projectId].push({
+        text,
+        timestamp: new Date().toLocaleString()
+    });
+    localStorage.setItem('projectComments', JSON.stringify(comments));
+}
+
+function displayComments(projectId, commentList) {
+    const comments = JSON.parse(localStorage.getItem('projectComments') || '{}')[projectId] || [];
+    commentList.innerHTML = '';
+    comments.forEach(comment => {
+        const li = document.createElement('li');
+        li.className = 'comment-item';
+        li.innerHTML = `
+            <p class="comment-text">${comment.text}</p>
+            <p class="comment-timestamp">${comment.timestamp}</p>
+        `;
+        commentList.appendChild(li);
+    });
+}
+
+document.addEventListener('keydown', function(e) {
+    if (e.key === 'Escape') {
+        if (projectModal && projectModal.classList.contains('active')) {
+            closeProjectModal();
+        }
+        if (mobileMenu && mobileMenu.classList.contains('active')) {
+            closeMobileMenu();
+        }
     }
 });
 
-// Navigation smooth scrolling
-const navLinks = document.querySelectorAll('.nav-link, .dropdown-item, .menu-item');
-
-navLinks.forEach(link => {
-    link.addEventListener('click', (e) => {
-        const href = link.getAttribute('href');
-        
-        // Only handle hash links
-        if (href && href.startsWith('#')) {
-            e.preventDefault();
-            
-            const targetId = href.substring(1);
-            const targetElement = document.getElementById(targetId);
-            
-            if (targetElement) {
-                targetElement.scrollIntoView({
-                    behavior: 'smooth',
-                    block: 'start'
-                });
-            }
-            
-            // Close mobile menu if open
-            mobileMenuBtn.classList.remove('active');
-            mobileMenu.classList.remove('active');
-            body.style.overflow = '';
-            
-            // Update active nav link
-            updateActiveNavLink(href);
-        }
-    });
+window.addEventListener('resize', function() {
+    if (window.innerWidth > 768) {
+        closeMobileMenu();
+    }
 });
 
-// Update active navigation link
-function updateActiveNavLink(activeHref) {
+window.addEventListener('scroll', function() {
+    const sections = document.querySelectorAll('section[id]');
     const navLinks = document.querySelectorAll('.nav-link');
+    
+    let current = '';
+    sections.forEach(section => {
+        const sectionTop = section.offsetTop;
+        const sectionHeight = section.clientHeight;
+        if (window.pageYOffset >= sectionTop - 200) {
+            current = section.getAttribute('id');
+        }
+    });
+
     navLinks.forEach(link => {
         link.classList.remove('active');
-        if (link.getAttribute('href') === activeHref) {
+        if (link.getAttribute('href') === `#${current}` || (current === 'projects' && link.getAttribute('href') === 'projects.html')) {
             link.classList.add('active');
         }
     });
-}
-
-// Button interactions
-const primaryBtn = document.querySelector('.btn-primary');
-const secondaryBtn = document.querySelector('.btn-secondary');
-
-primaryBtn.addEventListener('click', () => {
-    // Scroll to projects section or show projects
-    const projectsSection = document.getElementById('projects');
-    if (projectsSection) {
-        projectsSection.scrollIntoView({
-            behavior: 'smooth',
-            block: 'start'
-        });
-    } else {
-        // Create a simple alert for demonstration
-        showNotification('Projects section coming soon!');
-    }
 });
 
-secondaryBtn.addEventListener('click', () => {
-    // Scroll to about section
-    const aboutSection = document.getElementById('about');
-    if (aboutSection) {
-        aboutSection.scrollIntoView({
-            behavior: 'smooth',
-            block: 'start'
-        });
-    } else {
-        showNotification('About section coming soon!');
-    }
-});
-
-// Social links
-const socialLinks = document.querySelectorAll('.social-link');
-
-socialLinks.forEach(link => {
-    link.addEventListener('click', (e) => {
-        e.preventDefault();
-        const title = link.getAttribute('title');
-        showNotification(`${title} link will be available soon!`);
-    });
-});
-
-// Notification function
-function showNotification(message) {
-    // Remove existing notification if any
-    const existingNotification = document.querySelector('.notification');
-    if (existingNotification) {
-        existingNotification.remove();
-    }
-    
-    // Create notification element
-    const notification = document.createElement('div');
-    notification.className = 'notification';
-    notification.innerHTML = `
-        <div class="notification-content">
-            <i class="fas fa-info-circle"></i>
-            <span>${message}</span>
-        </div>
-    `;
-    
-    // Add notification styles
-    notification.style.cssText = `
-        position: fixed;
-        top: 6rem;
-        right: 2rem;
-        background: rgba(17, 17, 17, 0.95);
-        backdrop-filter: blur(10px);
-        border: 1px solid rgba(255, 255, 255, 0.1);
-        border-radius: 12px;
-        padding: 1rem 1.5rem;
-        color: #ffffff;
-        z-index: 1002;
-        transform: translateX(100%);
-        transition: transform 0.3s ease;
-        max-width: 300px;
-    `;
-    
-    notification.querySelector('.notification-content').style.cssText = `
-        display: flex;
-        align-items: center;
-        gap: 0.75rem;
-        font-size: 0.9rem;
-    `;
-    
-    notification.querySelector('i').style.cssText = `
-        color: #22c55e;
-        font-size: 1rem;
-    `;
-    
-    // Add to DOM
-    document.body.appendChild(notification);
-    
-    // Animate in
-    setTimeout(() => {
-        notification.style.transform = 'translateX(0)';
-    }, 100);
-    
-    // Remove after 3 seconds
-    setTimeout(() => {
-        notification.style.transform = 'translateX(100%)';
-        setTimeout(() => {
-            notification.remove();
-        }, 300);
-    }, 3000);
-}
-
-// Scroll-based animations
-let lastScrollY = window.scrollY;
-
-window.addEventListener('scroll', () => {
-    const currentScrollY = window.scrollY;
-    const navbar = document.querySelector('.navbar');
-    
-    if (navbar) {
-        if (currentScrollY > lastScrollY && currentScrollY > 100) {
-            // Scrolling down
-            navbar.style.transform = 'translateX(-50%) translateY(-100%)';
-        } else {
-            // Scrolling up
-            navbar.style.transform = 'translateX(-50%) translateY(0)';
-        }
-    }
-    
-    lastScrollY = currentScrollY;
-});
-
-// Intersection Observer for animations
 const observerOptions = {
     threshold: 0.1,
     rootMargin: '0px 0px -50px 0px'
 };
 
-const observer = new IntersectionObserver((entries) => {
+const observer = new IntersectionObserver(function(entries) {
     entries.forEach(entry => {
         if (entry.isIntersecting) {
             entry.target.style.opacity = '1';
@@ -202,92 +444,75 @@ const observer = new IntersectionObserver((entries) => {
     });
 }, observerOptions);
 
-// Observe elements for scroll animations
-document.addEventListener('DOMContentLoaded', () => {
-    const animatedElements = document.querySelectorAll('.hero-content, .status-badge');
-    
-    animatedElements.forEach(el => {
-        el.style.opacity = '0';
-        el.style.transform = 'translateY(30px)';
-        el.style.transition = 'opacity 0.6s ease, transform 0.6s ease';
-        observer.observe(el);
+document.addEventListener('DOMContentLoaded', function() {
+    const projectCards = document.querySelectorAll('.project-card');
+    projectCards.forEach(card => {
+        card.style.opacity = '0';
+        card.style.transform = 'translateY(20px)';
+        card.style.transition = 'opacity 0.6s ease, transform 0.6s ease';
+        observer.observe(card);
     });
+});
+
+function showLoadingState(element) {
+    const originalText = element.textContent;
+    element.textContent = 'Loading...';
+    element.disabled = true;
     
-    // Trigger animations after a short delay
     setTimeout(() => {
-        animatedElements.forEach(el => {
-            el.style.opacity = '1';
-            el.style.transform = 'translateY(0)';
-        });
+        element.textContent = originalText;
+        element.disabled = false;
     }, 500);
-});
-
-// Keyboard navigation
-document.addEventListener('keydown', (e) => {
-    if (e.key === 'Escape') {
-        // Close mobile menu
-        mobileMenuBtn.classList.remove('active');
-        mobileMenu.classList.remove('active');
-        body.style.overflow = '';
-    }
-});
-
-// Add hover effects to floating elements
-const floatingElements = document.querySelectorAll('.tech-icon, .geometric-shape');
-
-floatingElements.forEach(element => {
-    element.addEventListener('mouseenter', () => {
-        element.style.transform = 'scale(1.1)';
-        element.style.transition = 'transform 0.3s ease';
-    });
-    
-    element.addEventListener('mouseleave', () => {
-        element.style.transform = 'scale(1)';
-    });
-});
-
-// Dynamic greeting based on time
-function updateGreeting() {
-    const now = new Date();
-    const hour = now.getHours();
-    const floatingText = document.querySelector('.floating-text');
-    
-    if (floatingText) {
-        let greeting;
-        if (hour < 12) {
-            greeting = 'Good morning!';
-        } else if (hour < 17) {
-            greeting = 'Good afternoon!';
-        } else {
-            greeting = 'Good evening!';
-        }
-        
-        floatingText.textContent = greeting;
-    }
 }
 
-// Update greeting on load
-document.addEventListener('DOMContentLoaded', updateGreeting);
-
-// Add loading animation
-window.addEventListener('load', () => {
-    document.body.classList.add('loaded');
+document.addEventListener('DOMContentLoaded', function() {
+    const projectCards = document.querySelectorAll('.project-card');
     
-    // Add loading styles
-    const style = document.createElement('style');
-    style.textContent = `
-        body:not(.loaded) {
-            overflow: hidden;
-        }
+    projectCards.forEach(card => {
+        card.addEventListener('mouseenter', function() {
+            this.style.transform = 'translateY(-10px) scale(1.02)';
+        });
         
-        body:not(.loaded) .hero-section {
+        card.addEventListener('mouseleave', function() {
+            this.style.transform = 'translateY(0) scale(1)';
+        });
+        
+        const projectLinks = card.querySelectorAll('.project-link');
+        projectLinks.forEach(link => {
+            link.addEventListener('click', function(e) {
+                const ripple = document.createElement('span');
+                ripple.classList.add('ripple');
+                this.appendChild(ripple);
+                
+                setTimeout(() => {
+                    ripple.remove();
+                }, 600);
+            });
+        });
+    });
+});
+
+const style = document.createElement('style');
+style.textContent = `
+    .ripple {
+        position: absolute;
+        border-radius: 50%;
+        background: rgba(34, 197, 94, 0.3);
+        transform: scale(0);
+        animation: ripple-animation 0.6s linear;
+        pointer-events: none;
+    }
+    
+    @keyframes ripple-animation {
+        to {
+            transform: scale(4);
             opacity: 0;
         }
-        
-        body.loaded .hero-section {
-            opacity: 1;
-            transition: opacity 0.5s ease;
-        }
-    `;
-    document.head.appendChild(style);
-});
+    }
+    
+    .project-link {
+        position: relative;
+        overflow: hidden;
+    }
+`;
+document.head.appendChild(style);
