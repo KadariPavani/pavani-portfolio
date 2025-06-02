@@ -35,7 +35,58 @@ const projectsData = {
             "Weather alerts and notifications"
         ]
     },
-    project3: {
+        project3: {
+        title: "FitTrack",
+        subtitle: "A fitness tracking app with Python & Django.",
+        teamSize: "Solo Project",
+        explanation: "FitTrack is a comprehensive fitness tracking application that helps users monitor their workout routines, track progress, and achieve their fitness goals. The app provides detailed analytics and personalized recommendations based on user activity.",
+        goals: "The main objective was to create a motivating fitness companion that would help users stay consistent with their workout routines. We aimed to provide comprehensive tracking capabilities while maintaining a simple and engaging user interface.",
+        techStack: "Python, Django, PostgreSQL, Django REST Framework, Chart.js",
+        features: [
+            "Workout routine tracking",
+            "Progress analytics and charts",
+            "Goal setting and achievements",
+            "Exercise library and tutorials",
+            "Social features and challenges",
+            "Nutrition tracking integration",
+            "Wearable device synchronization"
+        ]
+    },
+    project4: {
+        title: "FitTrack",
+        subtitle: "A fitness tracking app with Python & Django.",
+        teamSize: "Solo Project",
+        explanation: "FitTrack is a comprehensive fitness tracking application that helps users monitor their workout routines, track progress, and achieve their fitness goals. The app provides detailed analytics and personalized recommendations based on user activity.",
+        goals: "The main objective was to create a motivating fitness companion that would help users stay consistent with their workout routines. We aimed to provide comprehensive tracking capabilities while maintaining a simple and engaging user interface.",
+        techStack: "Python, Django, PostgreSQL, Django REST Framework, Chart.js",
+        features: [
+            "Workout routine tracking",
+            "Progress analytics and charts",
+            "Goal setting and achievements",
+            "Exercise library and tutorials",
+            "Social features and challenges",
+            "Nutrition tracking integration",
+            "Wearable device synchronization"
+        ]
+    },
+        project5: {
+        title: "FitTrack",
+        subtitle: "A fitness tracking app with Python & Django.",
+        teamSize: "Solo Project",
+        explanation: "FitTrack is a comprehensive fitness tracking application that helps users monitor their workout routines, track progress, and achieve their fitness goals. The app provides detailed analytics and personalized recommendations based on user activity.",
+        goals: "The main objective was to create a motivating fitness companion that would help users stay consistent with their workout routines. We aimed to provide comprehensive tracking capabilities while maintaining a simple and engaging user interface.",
+        techStack: "Python, Django, PostgreSQL, Django REST Framework, Chart.js",
+        features: [
+            "Workout routine tracking",
+            "Progress analytics and charts",
+            "Goal setting and achievements",
+            "Exercise library and tutorials",
+            "Social features and challenges",
+            "Nutrition tracking integration",
+            "Wearable device synchronization"
+        ]
+    },
+        project6: {
         title: "FitTrack",
         subtitle: "A fitness tracking app with Python & Django.",
         teamSize: "Solo Project",
@@ -65,6 +116,7 @@ document.addEventListener('DOMContentLoaded', function() {
     initializeElements();
     initializeEventListeners();
     initializeProjectStats();
+    initializeQualificationAnimations();
 });
 
 function initializeElements() {
@@ -172,10 +224,7 @@ function handleHeroButtonClick() {
             projectsSection.scrollIntoView({ behavior: 'smooth' });
         }
     } else if (this.textContent.includes('More about me')) {
-        const aboutSection = document.getElementById('about');
-        if (aboutSection) {
-            aboutSection.scrollIntoView({ behavior: 'smooth' });
-        }
+        window.location.href = 'about.html';
     }
 }
 
@@ -187,6 +236,12 @@ function handleNavLinkClick(e) {
     const navLinks = document.querySelectorAll('.nav-link');
     navLinks.forEach(l => l.classList.remove('active'));
     this.classList.add('active');
+    
+    // Check if the link is for the about page
+    if (this.getAttribute('href').includes('#about')) {
+        window.location.href = 'about.html';
+        e.preventDefault();
+    }
 }
 
 function handleAnchorClick(e) {
@@ -392,6 +447,27 @@ function displayComments(projectId, commentList) {
     });
 }
 
+// Qualification Animations
+function initializeQualificationAnimations() {
+    const qualificationItems = document.querySelectorAll('.qualification-item');
+    const observerOptions = {
+        threshold: 0.1,
+        rootMargin: '0px 0px -50px 0px'
+    };
+
+    const observer = new IntersectionObserver(function(entries) {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                entry.target.classList.add('visible');
+            }
+        });
+    }, observerOptions);
+
+    qualificationItems.forEach(item => {
+        observer.observe(item);
+    });
+}
+
 document.addEventListener('keydown', function(e) {
     if (e.key === 'Escape') {
         if (projectModal && projectModal.classList.contains('active')) {
@@ -516,3 +592,79 @@ style.textContent = `
     }
 `;
 document.head.appendChild(style);
+// Each card slider can slide independently with auto-slide functionality
+document.querySelectorAll('.card-slider').forEach((slider) => {
+  const track = slider.querySelector('.card-track');
+  const cards = slider.querySelectorAll('.card');
+  let current = 0;
+  let autoSlideInterval;
+
+  // Create indicators
+  const indicatorsContainer = document.createElement('div');
+  indicatorsContainer.className = 'indicators';
+  
+  cards.forEach((_, index) => {
+    const indicator = document.createElement('div');
+    indicator.className = `indicator ${index === 0 ? 'active' : ''}`;
+    indicator.addEventListener('click', () => {
+      updateSlide(index);
+      resetAutoSlide();
+    });
+    indicatorsContainer.appendChild(indicator);
+  });
+  
+  slider.appendChild(indicatorsContainer);
+  
+  const indicators = slider.querySelectorAll('.indicator');
+
+  function updateSlide(index) {
+    current = index;
+    track.style.transform = `translateX(-${index * 100}%)`;
+    
+    // Update indicators
+    indicators.forEach((indicator, i) => {
+      indicator.classList.toggle('active', i === index);
+    });
+    
+    slider.dataset.current = index;
+  }
+
+  function nextSlide() {
+    const nextIndex = (current + 1) % cards.length;
+    updateSlide(nextIndex);
+  }
+
+  function startAutoSlide() {
+    autoSlideInterval = setInterval(nextSlide, 2000);
+  }
+
+  function resetAutoSlide() {
+    clearInterval(autoSlideInterval);
+    startAutoSlide();
+  }
+
+  // Arrow click handlers
+  slider.querySelector('.arrow.left').addEventListener('click', () => {
+    const prevIndex = (current - 1 + cards.length) % cards.length;
+    updateSlide(prevIndex);
+    resetAutoSlide();
+  });
+
+  slider.querySelector('.arrow.right').addEventListener('click', () => {
+    const nextIndex = (current + 1) % cards.length;
+    updateSlide(nextIndex);
+    resetAutoSlide();
+  });
+
+  // Pause auto-slide on hover
+  slider.addEventListener('mouseenter', () => {
+    clearInterval(autoSlideInterval);
+  });
+
+  slider.addEventListener('mouseleave', () => {
+    startAutoSlide();
+  });
+
+  // Initialize auto-slide
+  startAutoSlide();
+});

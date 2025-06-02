@@ -1,0 +1,633 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Testimonials Slider</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            background: #000;
+            color: #fff;
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+            overflow-x: hidden;
+        }
+
+        .main-container {
+            min-height: 100vh;
+            background: #0a0a0a;
+            background-image: 
+                linear-gradient(rgba(255, 255, 255, 0.02) 1px, transparent 1px),
+                linear-gradient(90deg, rgba(255, 255, 255, 0.02) 1px, transparent 1px);
+            background-size: 50px 50px;
+            position: relative;
+        }
+
+        .header {
+            text-align: center;
+            padding: 80px 20px 60px;
+        }
+
+        .header h1 {
+            font-size: 4rem;
+            font-weight: 300;
+            font-style: italic;
+            color: #ffffff;
+            margin-bottom: 20px;
+            letter-spacing: 1px;
+            font-family: 'Dancing Script', 'Brush Script MT', cursive;
+            text-shadow: 0 0 20px rgba(255, 255, 255, 0.1);
+        }
+
+        .testimonials-container {
+            display: flex;
+            justify-content: center;
+            gap: 30px;
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        .testimonial-card {
+            flex: 1;
+            max-width: 380px;
+            min-height: 450px;
+            background: rgba(255, 255, 255, 0.03);
+            border: 1px solid rgba(255, 255, 255, 0.08);
+            border-radius: 12px;
+            padding: 32px;
+            backdrop-filter: blur(20px);
+            position: relative;
+            overflow: hidden;
+            box-shadow: 
+                0 8px 32px rgba(0, 0, 0, 0.3),
+                inset 0 1px 0 rgba(255, 255, 255, 0.1);
+        }
+
+        .card-header {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            margin-bottom: 25px;
+        }
+
+        .card-type {
+            font-size: 0.8rem;
+            font-weight: 600;
+            color: #a0a0a0;
+            text-transform: uppercase;
+            letter-spacing: 1.2px;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .nav-arrows {
+            display: flex;
+            gap: 8px;
+        }
+
+        .arrow {
+            width: 32px;
+            height: 32px;
+            border: 1px solid rgba(255, 255, 255, 0.15);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            font-size: 13px;
+            color: #ccc;
+            background: rgba(255, 255, 255, 0.02);
+        }
+
+        .arrow:hover {
+            background: rgba(255, 255, 255, 0.08);
+            border-color: rgba(255, 255, 255, 0.3);
+            color: #fff;
+        }
+
+        .content-slider {
+            position: relative;
+            height: 280px;
+            overflow: hidden;
+        }
+
+        .content-wrapper {
+            display: flex;
+            transition: transform 0.8s cubic-bezier(0.4, 0, 0.2, 1);
+            height: 100%;
+        }
+
+        .content-slide {
+            min-width: 100%;
+            flex-shrink: 0;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .slide-title {
+            font-size: 1.1rem;
+            font-weight: 600;
+            color: #ffffff;
+            margin-bottom: 15px;
+        }
+
+        .slide-description {
+            font-size: 0.95rem;
+            line-height: 1.6;
+            color: #b8b8b8;
+            margin-bottom: 20px;
+        }
+
+        .slide-list {
+            list-style: none;
+            padding: 0;
+            flex-grow: 1;
+        }
+
+        .slide-list li {
+            padding: 8px 0;
+            color: #a8a8a8;
+            position: relative;
+            padding-left: 18px;
+            font-size: 0.9rem;
+            line-height: 1.5;
+        }
+
+        .slide-list li:before {
+            content: '•';
+            color: #666;
+            position: absolute;
+            left: 0;
+            font-size: 14px;
+        }
+
+        .card-footer {
+            position: absolute;
+            bottom: 30px;
+            left: 30px;
+            right: 30px;
+            display: flex;
+            align-items: center;
+            gap: 15px;
+        }
+
+        .avatar {
+            width: 48px;
+            height: 48px;
+            border-radius: 50%;
+            background: linear-gradient(135deg, #2a2a2a, #404040);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: 600;
+            font-size: 16px;
+            color: #fff;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        .author-info h4 {
+            font-size: 1rem;
+            font-weight: 600;
+            margin-bottom: 3px;
+            color: #ffffff;
+        }
+
+        .author-info p {
+            font-size: 0.85rem;
+            color: #888;
+        }
+
+        .slide-indicator {
+            position: absolute;
+            bottom: 80px;
+            right: 30px;
+            display: flex;
+            gap: 6px;
+        }
+
+        .indicator-dot {
+            width: 8px;
+            height: 8px;
+            border-radius: 50%;
+            background: rgba(255, 255, 255, 0.25);
+            transition: all 0.3s ease;
+            cursor: pointer;
+        }
+
+        .indicator-dot.active {
+            background: rgba(255, 255, 255, 0.8);
+            transform: scale(1.25);
+            box-shadow: 0 0 8px rgba(255, 255, 255, 0.3);
+        }
+
+        .scroll-indicator {
+            position: absolute;
+            bottom: 40px;
+            right: 40px;
+            width: 44px;
+            height: 44px;
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            animation: pulse 2s infinite;
+            background: rgba(255, 255, 255, 0.02);
+            color: #ccc;
+            font-size: 16px;
+        }
+
+        @keyframes pulse {
+            0%, 100% { opacity: 0.5; transform: scale(1); }
+            50% { opacity: 1; transform: scale(1.1); }
+        }
+
+        @media (max-width: 1200px) {
+            .testimonials-container {
+                flex-direction: column;
+                align-items: center;
+                gap: 20px;
+            }
+            
+            .testimonial-card {
+                max-width: 500px;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .header h1 {
+                font-size: 2.5rem;
+            }
+            
+            .testimonial-card {
+                margin: 0 10px;
+                padding: 25px 20px;
+                min-height: 400px;
+            }
+            
+            .content-slider {
+                height: 250px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="main-container">
+        <div class="header">
+            <h1>Some good words</h1>
+        </div>
+
+        <div class="testimonials-container">
+            <!-- Diploma Card -->
+            <div class="testimonial-card" data-card="diploma">
+                <div class="card-header">
+                    <div class="card-type">
+                        📚 AS A DIPLOMA STUDENT
+                    </div>
+                    <div class="nav-arrows">
+                        <div class="arrow">←</div>
+                        <div class="arrow">→</div>
+                    </div>
+                </div>
+                
+                <div class="content-slider">
+                    <div class="content-wrapper">
+                        <div class="content-slide">
+                            <div class="slide-title">Academic Excellence</div>
+                            <div class="slide-description">Focused on building strong foundations in engineering principles</div>
+                            <ul class="slide-list">
+                                <li>Maintaining 85+ GPA across all semesters</li>
+                                <li>Active participation in laboratory sessions</li>
+                                <li>Regular submission of assignments and projects</li>
+                                <li>Collaborative learning with study groups</li>
+                            </ul>
+                        </div>
+                        <div class="content-slide">
+                            <div class="slide-title">Technical Skills</div>
+                            <div class="slide-description">Developing practical knowledge through hands-on experience</div>
+                            <ul class="slide-list">
+                                <li>Programming fundamentals in C/C++ and Java</li>
+                                <li>Circuit analysis and electronic components</li>
+                                <li>CAD software for technical drawings</li>
+                                <li>Database management and SQL basics</li>
+                            </ul>
+                        </div>
+                        <div class="content-slide">
+                            <div class="slide-title">Extracurricular Activities</div>
+                            <div class="slide-description">Engaging beyond academics for holistic development</div>
+                            <ul class="slide-list">
+                                <li>Member of technical club organizing workshops</li>
+                                <li>Participated in inter-college competitions</li>
+                                <li>Volunteer for college cultural events</li>
+                                <li>Sports activities and fitness programs</li>
+                            </ul>
+                        </div>
+                        <div class="content-slide">
+                            <div class="slide-title">Future Goals</div>
+                            <div class="slide-description">Planning ahead for career advancement</div>
+                            <ul class="slide-list">
+                                <li>Preparing for higher education entrance exams</li>
+                                <li>Building industry-relevant project portfolio</li>
+                                <li>Networking with professionals and alumni</li>
+                                <li>Exploring internship opportunities</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="slide-indicator">
+                    <div class="indicator-dot active"></div>
+                    <div class="indicator-dot"></div>
+                    <div class="indicator-dot"></div>
+                    <div class="indicator-dot"></div>
+                </div>
+
+                <div class="card-footer">
+                    <div class="avatar">DS</div>
+                    <div class="author-info">
+                        <h4>Diploma Student</h4>
+                        <p>Engineering Foundation</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- B.Tech Card -->
+            <div class="testimonial-card" data-card="btech">
+                <div class="card-header">
+                    <div class="card-type">
+                        🎓 AS A B.TECH ASPIRANT
+                    </div>
+                    <div class="nav-arrows">
+                        <div class="arrow">←</div>
+                        <div class="arrow">→</div>
+                    </div>
+                </div>
+                
+                <div class="content-slider">
+                    <div class="content-wrapper">
+                        <div class="content-slide">
+                            <div class="slide-title">Preparation Strategy</div>
+                            <div class="slide-description">Systematic approach to entrance exam preparation</div>
+                            <ul class="slide-list">
+                                <li>Daily study schedule with focused time blocks</li>
+                                <li>Mock tests and previous year paper solving</li>
+                                <li>Strong foundation in Physics, Chemistry, Math</li>
+                                <li>Regular revision and concept clarification</li>
+                            </ul>
+                        </div>
+                        <div class="content-slide">
+                            <div class="slide-title">College Research</div>
+                            <div class="slide-description">Exploring top engineering institutions and programs</div>
+                            <ul class="slide-list">
+                                <li>Researching IITs, NITs, and other premier institutes</li>
+                                <li>Understanding different engineering specializations</li>
+                                <li>Analyzing placement records and industry connections</li>
+                                <li>Campus visits and interaction with current students</li>
+                            </ul>
+                        </div>
+                        <div class="content-slide">
+                            <div class="slide-title">Skill Development</div>
+                            <div class="slide-description">Building relevant technical and soft skills</div>
+                            <ul class="slide-list">
+                                <li>Advanced programming languages and frameworks</li>
+                                <li>Problem-solving and analytical thinking</li>
+                                <li>Communication and presentation skills</li>
+                                <li>Leadership through team projects</li>
+                            </ul>
+                        </div>
+                        <div class="content-slide">
+                            <div class="slide-title">Career Vision</div>
+                            <div class="slide-description">Long-term goals and industry aspirations</div>
+                            <ul class="slide-list">
+                                <li>Targeting software development or core engineering</li>
+                                <li>Planning for higher studies abroad (MS/PhD)</li>
+                                <li>Entrepreneurship and startup opportunities</li>
+                                <li>Contributing to innovative technology solutions</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="slide-indicator">
+                    <div class="indicator-dot active"></div>
+                    <div class="indicator-dot"></div>
+                    <div class="indicator-dot"></div>
+                    <div class="indicator-dot"></div>
+                </div>
+
+                <div class="card-footer">
+                    <div class="avatar">BT</div>
+                    <div class="author-info">
+                        <h4>Future Engineer</h4>
+                        <p>B.Tech Preparation</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Hobbies Card -->
+            <div class="testimonial-card" data-card="hobbies">
+                <div class="card-header">
+                    <div class="card-type">
+                        🎯 FREE TIME & HOBBIES
+                    </div>
+                    <div class="nav-arrows">
+                        <div class="arrow">←</div>
+                        <div class="arrow">→</div>
+                    </div>
+                </div>
+                
+                <div class="content-slider">
+                    <div class="content-wrapper">
+                        <div class="content-slide">
+                            <div class="slide-title">Coding & Development</div>
+                            <div class="slide-description">Personal projects and programming exploration</div>
+                            <ul class="slide-list">
+                                <li>Building web applications with modern frameworks</li>
+                                <li>Contributing to open-source projects on GitHub</li>
+                                <li>Learning new programming languages and tools</li>
+                                <li>Creating mobile apps and games for fun</li>
+                            </ul>
+                        </div>
+                        <div class="content-slide">
+                            <div class="slide-title">Reading & Learning</div>
+                            <div class="slide-description">Continuous learning through various resources</div>
+                            <ul class="slide-list">
+                                <li>Tech blogs and industry publications</li>
+                                <li>Science fiction and programming books</li>
+                                <li>Online courses and tutorial platforms</li>
+                                <li>Podcasts about technology and innovation</li>
+                            </ul>
+                        </div>
+                        <div class="content-slide">
+                            <div class="slide-title">Gaming & Strategy</div>
+                            <div class="slide-description">Strategic thinking through competitive gaming</div>
+                            <ul class="slide-list">
+                                <li>Chess and strategic board games</li>
+                                <li>Competitive programming contests</li>
+                                <li>Video games that enhance problem-solving</li>
+                                <li>Puzzle solving and brain teasers</li>
+                            </ul>
+                        </div>
+                        <div class="content-slide">
+                            <div class="slide-title">Creative Pursuits</div>
+                            <div class="slide-description">Artistic expression and content creation</div>
+                            <ul class="slide-list">
+                                <li>Photography and digital art creation</li>
+                                <li>Video editing and content production</li>
+                                <li>Writing technical blogs and tutorials</li>
+                                <li>Music production and sound design</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="slide-indicator">
+                    <div class="indicator-dot active"></div>
+                    <div class="indicator-dot"></div>
+                    <div class="indicator-dot"></div>
+                    <div class="indicator-dot"></div>
+                </div>
+
+                <div class="card-footer">
+                    <div class="avatar">CH</div>
+                    <div class="author-info">
+                        <h4>Creative Hobbyist</h4>
+                        <p>Lifelong Learner</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="scroll-indicator">
+            ↓
+        </div>
+    </div>
+
+    <script>
+        class CardSlider {
+            constructor(cardElement) {
+                this.card = cardElement;
+                this.wrapper = cardElement.querySelector('.content-wrapper');
+                this.slides = cardElement.querySelectorAll('.content-slide');
+                this.indicators = cardElement.querySelectorAll('.indicator-dot');
+                this.arrows = cardElement.querySelectorAll('.arrow');
+                this.currentIndex = 0;
+                this.totalSlides = this.slides.length;
+                this.autoSlideInterval = 3500;
+                this.intervalId = null;
+
+                this.init();
+            }
+
+            init() {
+                this.startAutoSlide();
+                this.addEventListeners();
+                this.updateIndicators();
+            }
+
+            slideNext() {
+                this.currentIndex = (this.currentIndex + 1) % this.totalSlides;
+                this.updateSlide();
+            }
+
+            slidePrev() {
+                this.currentIndex = (this.currentIndex - 1 + this.totalSlides) % this.totalSlides;
+                this.updateSlide();
+            }
+
+            goToSlide(index) {
+                this.currentIndex = index;
+                this.updateSlide();
+            }
+
+            updateSlide() {
+                const translateX = -this.currentIndex * 100;
+                this.wrapper.style.transform = `translateX(${translateX}%)`;
+                this.updateIndicators();
+            }
+
+            updateIndicators() {
+                this.indicators.forEach((dot, index) => {
+                    dot.classList.toggle('active', index === this.currentIndex);
+                });
+            }
+
+            startAutoSlide() {
+                this.intervalId = setInterval(() => {
+                    this.slideNext();
+                }, this.autoSlideInterval);
+            }
+
+            stopAutoSlide() {
+                if (this.intervalId) {
+                    clearInterval(this.intervalId);
+                    this.intervalId = null;
+                }
+            }
+
+            resetAutoSlide() {
+                this.stopAutoSlide();
+                this.startAutoSlide();
+            }
+
+            addEventListeners() {
+                // Arrow navigation
+                this.arrows.forEach((arrow, index) => {
+                    arrow.addEventListener('click', (e) => {
+                        e.stopPropagation();
+                        if (arrow.textContent === '←') {
+                            this.slidePrev();
+                        } else {
+                            this.slideNext();
+                        }
+                        this.resetAutoSlide();
+                    });
+                });
+
+                // Indicator navigation
+                this.indicators.forEach((dot, index) => {
+                    dot.addEventListener('click', () => {
+                        this.goToSlide(index);
+                        this.resetAutoSlide();
+                    });
+                });
+
+                // Pause on hover
+                this.card.addEventListener('mouseenter', () => {
+                    this.stopAutoSlide();
+                });
+
+                this.card.addEventListener('mouseleave', () => {
+                    this.startAutoSlide();
+                });
+            }
+        }
+
+        // Initialize all card sliders when DOM is loaded
+        document.addEventListener('DOMContentLoaded', () => {
+            const cards = document.querySelectorAll('.testimonial-card');
+            cards.forEach(card => new CardSlider(card));
+
+            // Add entrance animations
+            cards.forEach((card, index) => {
+                card.style.opacity = '0';
+                card.style.transform = 'translateY(30px)';
+                card.style.transition = 'opacity 0.8s ease, transform 0.8s ease';
+                
+                setTimeout(() => {
+                    card.style.opacity = '1';
+                    card.style.transform = 'translateY(0)';
+                }, index * 200);
+            });
+        });
+    </script>
+</body>
+</html>

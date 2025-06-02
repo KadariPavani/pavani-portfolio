@@ -4,20 +4,99 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Pavani Kadari - Portfolio</title>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <link rel="stylesheet" href="styles.css">
     <link rel="stylesheet" href="projects.css">
     <link rel="stylesheet" href="modal.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+    <link rel="import" href="layout.html">
+    <script src="script.js" defer></script>
 </head>
 <body>
-    <!-- Include Header -->
-    <div id="header-placeholder"></div>
+    <!-- Header -->
+    <nav class="navbar">
+        <div class="nav-links">
+            <a href="#home" class="nav-link active">Home</a>
+            <a href="#about" class="nav-link">About</a>
+            <!-- <a href="#skills" class="nav-link">Skills</a> -->
+            <a href="projects.html" class="nav-link">Projects</a>
+            <div class="dropdown">
+                <a href="#" class="nav-link dropdown-toggle">
+                    More <i class="fas fa-chevron-down"></i>
+                </a>
+                <div class="dropdown-menu">
+                    <a href="#academic-achievements" class="dropdown-item">Academic Achievements</a>
+                    <a href="#internships" class="dropdown-item">Internships</a>
+                    <!-- <a href="#current-roles" class="dropdown-item">Current Roles</a> -->
+                </div>
+            </div>
+        </div>
+    </nav>
 
+    <div class="mobile-menu-btn">
+        Menu <i class="fas fa-chevron-down"></i>
+    </div>
+
+    <div class="mobile-menu">
+        <div class="mobile-menu-content">
+            <div class="menu-item" data-href="#home">
+                <i class="fas fa-home"></i>
+                <div class="menu-text">
+                    <h3>Home</h3>
+                    <p>Welcome to my portfolio!</p>
+                </div>
+                <!-- <span class="menu-status">Active</span> -->
+            </div>
+            <div class="menu-item" data-href="#about">
+                <i class="fas fa-user"></i>
+                <div class="menu-text">
+                    <h3>About</h3>
+                    <p>Learn more about me!</p>
+                </div>
+            </div>
+            <!-- <div class="menu-item" data-href="#skills">
+                <i class="fas fa-tools"></i>
+                <div class="menu-text">
+                    <h3>Skills</h3>
+                    <p>My technical expertise</p>
+                </div>
+            </div> -->
+            <div class="menu-item" data-href="projects.html">
+                <i class="fas fa-project-diagram"></i>
+                <div class="menu-text">
+                    <h3>Projects</h3>
+                    <p>Showcase of my work</p>
+                </div>
+            </div>
+            <div class="menu-item" data-href="#academic-achievements">
+                <i class="fas fa-graduation-cap"></i>
+                <div class="menu-text">
+                    <h3>Academic Achievements</h3>
+                    <p>My academic accomplishments</p>
+                </div>
+            </div>
+            <div class="menu-item" data-href="#internships">
+                <i class="fas fa-briefcase"></i>
+                <div class="menu-text">
+                    <h3>Internships</h3>
+                    <p>Professional experience</p>
+                </div>
+            </div>
+            <!-- <div class="menu-item" data-href="#current-roles">
+                <i class="fas fa-users"></i>
+                <div class="menu-text">
+                    <h3>Current Roles</h3>
+                    <p>My current positions</p>
+                </div>
+            </div> -->
+        </div>
+    </div>
+
+    <!-- Hero Section -->
     <section id="home" class="hero-section">
         <div class="status-badge">
-            <div class="status-indicator"></div>
+            <span class="status-indicator"></span>
             <span>BTech 4th Year Student</span>
-            <i class="fas fa-laptop status-icon"></i>
+            <i class="fas fa-check-circle status-icon"></i>
         </div>
 
         <div class="hero-content">
@@ -39,24 +118,94 @@
             </div>
         </div>
 
-        <div class="floating-elements">
-            <div class="floating-text">Hello, world!</div>
-            <div class="tech-icon icon-react"><i class="fab fa-react"></i></div>
-            <div class="tech-icon icon-js"><i class="fab fa-js"></i></div>
-            <div class="tech-icon icon-python"><i class="fab fa-python"></i></div>
-            <div class="tech-icon icon-node"><i class="fab fa-node"></i></div>
-            <div class="tech-icon icon-git"><i class="fab fa-git-alt"></i></div>
-            <div class="geometric-shape shape-1"></div>
-            <div class="geometric-shape shape-2"></div>
-            <div class="geometric-shape shape-3"></div>
-        </div>
+<div class="floating-elements">
+    <!-- <div class="floating-text">Hello,Pavani Here..!</div> -->
+    <div class="tech-icon icon-html"><i class="fab fa-html5"></i></div>
+    <div class="tech-icon icon-css"><i class="fab fa-css3-alt"></i></div>
+    <div class="tech-icon icon-js"><i class="fab fa-js"></i></div>
+    <div class="tech-icon icon-python"><i class="fab fa-python"></i></div>
+    <div class="tech-icon icon-java"><i class="fab fa-java"></i></div>
+    <div class="tech-icon icon-c">C</div>
+    <div class="tech-icon icon-cpp">C++</div>
+    <div class="tech-icon icon-react"><i class="fab fa-react"></i></div>
+    <div class="tech-icon icon-node"><i class="fab fa-node"></i></div>
+    <div class="tech-icon icon-git"><i class="fab fa-git-alt"></i></div>
+    <div class="geometric-shape shape-1"></div>
+    <div class="geometric-shape shape-2"></div>
+    <div class="geometric-shape shape-3"></div>
+</div>
+
     </section>
 
+   <!-- About Section -->
+    <section id="about" class="about-section">
+            <h2 class="section-title"><span class="highlight">About</span> Me</h2>
+    <div class="about-content">
+        <!-- <div class="about-image-wrapper">
+            <img src="./Pavani.jpg" alt="Pavani Kadari" class="about-image">
+        </div> -->
+        <div class="about-text">
+            <p class="about-description">
+                Hello! You can call me Pavani. I am a BTech 4th year student passionate about technology and innovation. 
+                I love learning new technologies, building projects, and exploring the endless possibilities in the world of computer science and engineering.
+            </p>
+                            <div class="tech-stack">
+                    <span class="tech-icon">P</span>
+                    <span class="tech-icon">A</span>
+                    <span class="tech-icon">N</span>
+                    <span class="tech-icon">N</span>
+                    <span class="tech-icon">U</span>
+                </div>
+        </div>
+    </div>
+    <div class="text-center">
+        <button class="btn-secondary more-about" onclick="window.location.href='about.html'">
+            More about me <i class="fas fa-user"></i>
+        </button>
+    </div>
+</section>
+
+    <!-- Qualification Section -->
+    <!-- <section id="skills" class="qualification-section">
+        <h2 class="qualification-title">Qualification</h2>
+        <p class="qualification-subtitle">My personal journey</p>
+        <div class="qualification-container">
+            <div class="qualification-timeline">
+                <div class="qualification-item left visible">
+                    <div class="qualification-content">
+                        <div class="qualification-degree"><i class="fas fa-graduation-cap"></i> Education</div>
+                        <h4>Bachelor of Technology in AID</h4>
+                        <p>Kiet-W</p>
+                        <div class="qualification-date"><i class="fas fa-calendar-alt"></i> 2023-2026</div>
+                    </div>
+                </div>
+                <div class="qualification-item right visible">
+                    <div class="qualification-content">
+                        <div class="qualification-degree"><i class="fas fa-graduation-cap"></i> Education</div>
+                        <h4>Diploma in Computer Engineering</h4>
+                        <p>Kiet-W</p>
+                        <div class="qualification-date"><i class="fas fa-calendar-alt"></i> 2020-2023</div>
+                    </div>
+                </div>
+                <div class="qualification-item left visible">
+                    <div class="qualification-content">
+                        <div class="qualification-degree"><i class="fas fa-graduation-cap"></i> Education</div>
+                        <h4>10th SSC</h4>
+                        <p>Z.P.P.H.S Kesanakurru Palem</p>
+                        <div class="qualification-date"><i class="fas fa-calendar-alt"></i> 2019-2020</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section> -->
+
+
+    <!-- Projects Section -->
     <section id="projects" class="projects-section">
-        <h1>Featured <span class="highlight">Projects</span></h1>
+        <h2 class="section-title"><span class="highlight">Featured</span> Projects</h2>
         <p class="section-subtitle">A selection of projects that I've worked on.</p>
         <div class="projects-grid">
-            <div class="project-card" data-project-id="project2">
+            <div class="project-card" data-project-id="project1">
                 <h2>WeatherWise</h2>
                 <p>A weather forecasting app built with React & OpenWeather API.</p>
                 <div class="project-tools">
@@ -71,7 +220,7 @@
                 <a href="#" class="project-link">Repository <i class="fas fa-code"></i></a>
                 <a href="#" class="project-link">Open Live Site <i class="fas fa-external-link-alt"></i></a>
             </div>
-            <div class="project-card" data-project-id="project3">
+            <div class="project-card" data-project-id="project2">
                 <h2>FitTrack</h2>
                 <p>A fitness tracking app with Python & Django.</p>
                 <div class="project-tools">
@@ -90,49 +239,24 @@
         <button class="btn-see-more">See more projects <i class="fas fa-arrow-right"></i></button>
     </section>
 
-    <div class="project-modal" id="projectModal">
-        <!-- Modal Navigation -->
-        <!-- <nav class="modal-nav">
-            <a href="#" class="modal-nav-link">Home</a>
-            <a href="#" class="modal-nav-link">Blog</a>
-            <a href="#" class="modal-nav-link active">Projects</a>
-            <a href="#" class="modal-nav-link">Shorts</a>
-            <a href="#" class="modal-nav-link">About</a>
-            <span class="modal-nav-link">More</span>
-        </nav> -->
-
-        <!-- Close Button -->
-        <button class="modal-close" onclick="closeProjectModal()">
-            <i class="fas fa-times"></i>
-        </button>
-
+    <!-- Project Modal -->
+    <div class="project-modal">
         <div class="project-modal-content">
+            <button class="modal-close"><i class="fas fa-times"></i></button>
             <div class="modal-body">
-                <!-- Header -->
-                <div class="modal-header">
-                    <h1 class="modal-title"></h1>
-                    <p class="modal-subtitle"></p>
-                    <div class="modal-stats">
-                        <span><i class="fas fa-users"></i> <span class="team-size"></span></span>
-                        <span><i class="fas fa-eye"></i> <span class="view-count">0</span> views</span>
-                        <span><i class="fas fa-heart"></i> <span class="like-count">0</span> likes <button class="like-button" data-liked="false"><i class="fas fa-heart"></i></button></span>
-                    </div>
-                    <div class="modal-links">
-                        <a href="#" class="modal-link">
-                            <i class="fas fa-external-link-alt"></i>
-                            Open Live Site
-                        </a>
-                        <a href="#" class="modal-link">
-                            <i class="fas fa-play"></i>
-                            Demo Video
-                        </a>
-                    </div>
+                <h2 class="modal-title"></h2>
+                <p class="modal-subtitle"></p>
+                <div class="modal-stats">
+                    <span class="team-size"></span>
+                    <span><i class="fas fa-eye"></i> <span class="view-count">0</span> views</span>
+                    <span><i class="fas fa-heart"></i> <span class="like-count">0</span> likes <button class="like-button"><i class="fas fa-heart"></i></button></span>
                 </div>
-
-                <!-- Content Grid -->
+                <div class="modal-links">
+                    <a href="#" class="modal-link">Open Live Site <i class="fas fa-external-link-alt"></i></a>
+                    <a href="#" class="modal-link">Demo Video <i class="fas fa-video"></i></a>
+                </div>
                 <div class="modal-content-wrapper">
-                    <!-- Main Content -->
-                    <div class="modal-main-content">
+                    <div class="content-column">
                         <div class="content-section">
                             <h3>Short Explanation</h3>
                             <p class="modal-explanation"></p>
@@ -146,9 +270,7 @@
                             <p>Video demo placeholder (link or embed will be added later).</p>
                         </div>
                     </div>
-
-                    <!-- Sidebar -->
-                    <div class="modal-sidebar">
+                    <div class="sidebar-column">
                         <div class="sidebar-section">
                             <h4>Tech Stack Used</h4>
                             <p class="modal-tech"></p>
@@ -159,8 +281,6 @@
                         </div>
                     </div>
                 </div>
-
-                <!-- Comment Section -->
                 <div class="comment-section">
                     <h4>Comments</h4>
                     <div class="comment-form">
@@ -173,18 +293,116 @@
         </div>
     </div>
 
-    <script src="script.js"></script>
-    <script>
-        // Load header and initialize all components
-        fetch('header.html')
-            .then(response => response.text())
-            .then(data => {
-                document.getElementById('header-placeholder').innerHTML = data;
-                initializeElements();
-                initializeEventListeners(); // Moved here to ensure mobile-menu-btn is available
-                initializeProjectStats();
-            })
-            .catch(error => console.error('Error loading header:', error));
-    </script>
-</body>
+<section id="academic-achievements" class="achievements-section">
+            <h2 class="section-title"><span class="highlight">Academic</span> Achievements</h2>
+            <div class="achievement">
+                <div class="achievement-content">
+                    <div class="achievement-date">May 2024</div>
+                    <h3 class="achievement-title">Graduated with Honors in Computer Science</h3>
+                    <p class="achievement-description">Completed my Bachelor's degree with a focus on software engineering and a GPA of 3.9.</p>
+                    <div class="achievement-skills">
+                        <span class="icon"></span>
+                        <span>Skills:</span>
+                        <div class="skills-list">
+                            <span class="skill">Programming</span>
+                            <span class="skill">Problem Solving</span>
+                        </div>
+                    </div>
+                </div>
+                <img src="https://via.placeholder.com/120x80" alt="Achievement" class="achievement-image">
+            </div>
+            <div class="achievement">
+                <div class="achievement-content">
+                    <div class="achievement-date">March 2023</div>
+                    <h3 class="achievement-title">Won First Place in National Coding Competition</h3>
+                    <p class="achievement-description">Led a team to develop a real-time collaborative app, winning against 50+ teams.</p>
+                    <div class="achievement-skills">
+                        <span class="icon"></span>
+                        <span>Skills:</span>
+                        <div class="skills-list">
+                            <span class="skill">Teamwork</span>
+                            <span class="skill">React</span>
+                        </div>
+                    </div>
+                </div>
+                <img src="https://via.placeholder.com/120x80" alt="Achievement" class="achievement-image">
+            </div>
+            <a href="academicAchievements.html" class="see-more">See more achievements <span class="arrow"></span></a>
+        </section>
+
+  
+    
+<section class="internship-section" id="internship">
+            <h2 class="section-title"><span class="highlight">Internships</span></h2>
+    <p class="section-subtitle">My Internship Completions</p>
+
+    <div class="internship-list">
+        <!-- Internship 1 -->
+        <div class="internship-item">
+            <h2 class="internship-title">AI with Python</h2>
+            <div class="internship-details" data-bg-image="https://placehold.co/350x400/png?text=AI+with+Python+Internship&font=montserrat">
+                <p>
+                    I completed an internship in Artificial Intelligence with Python at Verzeo.
+                </p>
+                <h3 class="qualification-title">Internship</h3>
+                <div class="qualification-calendar">
+                    <i class="uil uil-calendar-alt"></i>
+                    01-10-2021 to 30-11-2021
+                </div>
+                <a href="https://drive.google.com/file/d/1Agn5oZevQTGiUfEgbk_rY_sS9X9TuExV/view?usp=share_link">View Certificate</a>
+            </div>
+        </div>
+
+        <!-- Internship 2 -->
+        <div class="internship-item">
+            <h2 class="internship-title">Web Development Intern</h2>
+            <div class="internship-details" data-bg-image="https://placehold.co/350x400/png?text=Web+Development+Internship&font=montserrat">
+                <p>
+                    I worked as a Web Development Intern at TechCorp, focusing on building responsive websites using React.
+                </p>
+                <h3 class="qualification-title">Internship</h3>
+                <div class="qualification-calendar">
+                    <i class="uil uil-calendar-alt"></i>
+                    01-06-2022 to 31-07-2022
+                </div>
+                <a href="https://drive.google.com/file/d/placeholder-link/view?usp=share_link">View Certificate</a>
+            </div>
+        </div>
+    </div>
+
+    <div class="more-internships">
+        <a href="internships.html" class="btn-secondary">View More Internships</a>
+    </div>
+</section>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Footer</title>
+    <link rel="stylesheet" href="footer.css">
+    <link rel="stylesheet" href="https://unicons.iconscout.com/release/v4.0.8/css/line.css">
+</head>
+
+    <footer class="footer">
+        <div class="footer__container">
+            <h3 class="footer__title">Pavani Kadari</h3>
+            <p class="footer__copyright">© 2025 Pavani Kadari. All rights reserved.</p>
+            <div class="footer__social-wrapper">
+
+            <div class="social-links">
+                <a href="#" class="social-link"><i class="fab fa-github"></i></a>
+                <a href="#" class="social-link"><i class="fab fa-linkedin"></i></a>
+                <a href="#" class="social-link"><i class="fab fa-twitter"></i></a>
+                <a href="#" class="social-link"><i class="fab fa-instagram"></i></a>
+<a href="mailto:kadaripavani1@gmail.com" class="social-link"><i class="fas fa-envelope"></i></a>
+            </div>
+
+            </div>
+        </div>
+    </footer>
+
+
+
+    </body>
 </html>

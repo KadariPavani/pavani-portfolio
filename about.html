@@ -1,0 +1,307 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <title>About Pavani Kadari</title>
+    <link rel="stylesheet" href="styles.css">
+    <script src="script.js" defer></script>
+</head>
+<body>
+    <!-- Header -->
+    <!-- <nav class="navbar">
+        <div class="nav-links">
+            <a href="index.html#home" class="nav-link">Home</a>
+            <a href="#about" class="nav-link active">About</a>
+            <a href="index.html#skills" class="nav-link">Skills</a>
+            <a href="projects.html" class="nav-link">Projects</a>
+            <div class="dropdown">
+                <a href="#" class="nav-link dropdown-toggle">
+                    More <i class="fas fa-chevron-down"></i>
+                </a>
+                <div class="dropdown-menu">
+                    <a href="index.html#academic-achievements" class="dropdown-item">Academic Achievements</a>
+                    <a href="index.html#internships" class="dropdown-item">Internships</a>
+                    <a href="index.html#current-roles" class="dropdown-item">Current Roles</a>
+                </div>
+            </div>
+        </div>
+    </nav> -->
+<!-- 
+    <div class="mobile-menu-btn">
+        Menu <i class="fas fa-chevron-down"></i>
+    </div> -->
+    <header class="header">
+        <button class="modal-close" onclick="window.location.href='index.html'">
+            <i class="fas fa-times"></i>
+        </button>
+    </header>
+
+
+    <div class="mobile-menu">
+        <div class="mobile-menu-content">
+            <div class="menu-item" data-href="index.html#home">
+                <i class="fas fa-home"></i>
+                <div class="menu-text">
+                    <h3>Home</h3>
+                    <p>Welcome to my portfolio!</p>
+                </div>
+            </div>
+            <div class="menu-item" data-href="#about">
+                <i class="fas fa-user"></i>
+                <div class="menu-text">
+                    <h3>About</h3>
+                    <p>Learn more about me!</p>
+                </div>
+                <span class="menu-status">Active</span>
+            </div>
+            <div class="menu-item" data-href="index.html#skills">
+                <i class="fas fa-tools"></i>
+                <div class="menu-text">
+                    <h3>Skills</h3>
+                    <p>My technical expertise</p>
+                </div>
+            </div>
+            <div class="menu-item" data-href="projects.html">
+                <i class="fas fa-project-diagram"></i>
+                <div class="menu-text">
+                    <h3>Projects</h3>
+                    <p>Showcase of my work</p>
+                </div>
+            </div>
+            <div class="menu-item" data-href="index.html#academic-achievements">
+                <i class="fas fa-graduation-cap"></i>
+                <div class="menu-text">
+                    <h3>Academic Achievements</h3>
+                    <p>My academic accomplishments</p>
+                </div>
+            </div>
+            <div class="menu-item" data-href="index.html#internships">
+                <i class="fas fa-briefcase"></i>
+                <div class="menu-text">
+                    <h3>Internships</h3>
+                    <p>Professional experience</p>
+                </div>
+            </div>
+            <div class="menu-item" data-href="index.html#current-roles">
+                <i class="fas fa-users"></i>
+                <div class="menu-text">
+                    <h3>Current Roles</h3>
+                    <p>My current positions</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- About Section -->
+    <section id="about" class="about-section">
+        <h1 class="about-title">About <span class="highlight">Me</span></h1>
+        <div class="about-content">
+            <div class="about-image-wrapper">
+                <img src="./Pavani.jpg" alt="Pavani Kadari" class="about-image">
+            </div>
+            <div class="about-text">
+                <p class="about-description">
+                    Hello! You can call me Pavani. I am a BTech 4th year student passionate about technology and innovation. 
+                    I love learning new technologies, building projects, and exploring the endless possibilities in the world of computer science and engineering.
+                    <br><br>
+                    I was born in 2003 in Hyderabad, India. I am currently pursuing my BTech in Computer Science at a university in Hyderabad. 
+                    Out of my passion for technology, I started to learn web development and have been diving deep into full-stack development ever since.
+                    <br><br>
+                    As part of my learning journey, I started contributing to open-source projects and building my own applications. 
+                    I hope to use my skills to create impactful solutions in the tech world. Hopefully, it can help you too.
+                </p>
+                <div class="tech-stack">
+                    <span class="tech-icon">N</span>
+                    <span class="tech-icon">R</span>
+                    <span class="tech-icon">T</span>
+                    <span class="tech-icon">P</span>
+                    <span class="tech-icon">G</span>
+                </div>
+            </div>
+        </div>
+
+        <!-- Qualification Timeline -->
+        <div class="qualification-section">
+            <h2 class="qualification-title">Qualification</h2>
+            <p class="qualification-subtitle">My personal journey</p>
+            <div class="qualification-container">
+                <div class="qualification-timeline">
+                    <div class="qualification-item left">
+                        <div class="qualification-content">
+                            <h3 class="qualification-degree">
+                                <i class="fas fa-graduation-cap"></i> Education
+                            </h3>
+                            <h4>Bachelor of Technology in AID</h4>
+                            <p>Kiet-W</p>
+                            <span class="qualification-date"><i class="fas fa-calendar-alt"></i> 2023-2026</span>
+                        </div>
+                    </div>
+                    <div class="qualification-item right">
+                        <div class="qualification-content">
+                            <h3 class="qualification-degree">
+                                <i class="fas fa-graduation-cap"></i> Education
+                            </h3>
+                            <h4>Diploma in Computer Engineering</h4>
+                            <p>Kiet-W</p>
+                            <span class="qualification-date"><i class="fas fa-calendar-alt"></i> 2020-2023</span>
+                        </div>
+                    </div>
+                    <div class="qualification-item left">
+                        <div class="qualification-content">
+                            <h3 class="qualification-degree">
+                                <i class="fas fa-graduation-cap"></i> Education
+                            </h3>
+                            <h4>10th SSC</h4>
+                            <p>Z.P.P.H.S Kesanakurru Palem</p>
+                            <span class="qualification-date"><i class="fas fa-calendar-alt"></i> 2019-2020</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+
+        <h2 class="section-title">Some good words</h2>
+  <div class="cards-container">
+    <!-- Card 1 -->
+    <div class="card-slider" id="slider1">
+      <button class="arrow left" aria-label="Previous" data-slider="1">
+        <svg width="28" height="28" viewBox="0 0 28 28" fill="none">
+          <circle cx="14" cy="14" r="14" fill="#23272f"/>
+          <path d="M16.5 19L11.5 14L16.5 9" stroke="#fff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+        </svg>
+      </button>
+      <div class="card-track">
+        <div class="card">
+          <span class="card-label">AS A SOFTWARE ENGINEER</span>
+          <p class="card-text">Clarence is a pleasure to work with. His responsibility and meticulous attention to detail make him someone I can always rely on, both in writing code and during code reviews. His passion for his work is truly inspiring.</p>
+          <!-- <div class="author">
+            <img src="https://randomuser.me/api/portraits/men/32.jpg" alt="Anton" />
+            <div>
+              <div class="author-name">Anton Starodubtsev</div>
+              <div class="author-title">Chat Lead at Dimension</div>
+            </div>
+          </div> -->
+        </div>
+        <div class="card">
+          <span class="card-label">AS A SOFTWARE ENGINEER</span>
+          <p class="card-text">Clarence always brings innovative solutions and is a great team player. His code reviews are insightful and constructive.</p>
+          <!-- <div class="author">
+            <img src="https://randomuser.me/api/portraits/men/33.jpg" alt="Anton2" />
+            <div>
+              <div class="author-name">Anton Starodubtsev</div>
+              <div class="author-title">Chat Lead at Dimension</div>
+            </div>
+          </div> -->
+        </div>
+      </div>
+      <button class="arrow right" aria-label="Next" data-slider="1">
+        <svg width="28" height="28" viewBox="0 0 28 28" fill="none">
+          <circle cx="14" cy="14" r="14" fill="#23272f"/>
+          <path d="M11.5 9L16.5 14L11.5 19" stroke="#fff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+        </svg>
+      </button>
+    </div>
+    <!-- Card 2 -->
+    <div class="card-slider" id="slider2">
+      <button class="arrow left" aria-label="Previous" data-slider="2">
+        <svg width="28" height="28" viewBox="0 0 28 28" fill="none">
+          <circle cx="14" cy="14" r="14" fill="#23272f"/>
+          <path d="M16.5 19L11.5 14L16.5 9" stroke="#fff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+        </svg>
+      </button>
+      <div class="card-track">
+        <div class="card">
+          <span class="card-label">AS A WRITER</span>
+          <p class="card-text">Hello, Theodorus Clarence! Just checked in your useful post about choosing Next.js data fetching strategy, thank you for clearing this out for me!</p>
+          <!-- <div class="author">
+            <img src="https://randomuser.me/api/portraits/women/44.jpg" alt="Daryna" />
+            <div>
+              <div class="author-name">@DanylenkoDaryna</div>
+              <div class="author-title">via Guest Book</div>
+            </div>
+          </div> -->
+        </div>
+        <div class="card">
+          <span class="card-label">AS A WRITER</span>
+          <p class="card-text">Clarence's blog posts are always well-structured and easy to follow. I learned a lot from his guides.</p>
+          <!-- <div class="author">
+            <img src="https://randomuser.me/api/portraits/women/45.jpg" alt="Daryna2" />
+            <div>
+              <div class="author-name">@DanylenkoDaryna</div>
+              <div class="author-title">via Guest Book</div>
+            </div>
+          </div> -->
+        </div>
+      </div>
+      <button class="arrow right" aria-label="Next" data-slider="2">
+        <svg width="28" height="28" viewBox="0 0 28 28" fill="none">
+          <circle cx="14" cy="14" r="14" fill="#23272f"/>
+          <path d="M11.5 9L16.5 14L11.5 19" stroke="#fff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+        </svg>
+      </button>
+    </div>
+    <!-- Card 3 -->
+    <div class="card-slider" id="slider3">
+      <button class="arrow left" aria-label="Previous" data-slider="3">
+        <svg width="28" height="28" viewBox="0 0 28 28" fill="none">
+          <circle cx="14" cy="14" r="14" fill="#23272f"/>
+          <path d="M16.5 19L11.5 14L16.5 9" stroke="#fff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+        </svg>
+      </button>
+      <div class="card-track">
+        <div class="card">
+          <span class="card-label">AS A MENTOR</span>
+          <p class="card-text">Clarence is an exceptional mentor—his clear explanations and thoughtful guidance always steer me in the right direction. Even after considering my university lecturers and experiences with team leads and seniors, he’s the best engineer I’ve ever encountered, hands down.</p>
+          <!-- <div class="author">
+            <img src="https://randomuser.me/api/portraits/men/36.jpg" alt="Marshall" />
+            <div>
+              <div class="author-name">Marshall Kurniawan</div>
+              <div class="author-title">Mentee</div>
+            </div>
+          </div> -->
+        </div>
+        <div class="card">
+          <span class="card-label">AS A MENTOR</span>
+          <p class="card-text">Clarence provides actionable feedback and motivates his mentees to grow. His mentorship is invaluable.</p>
+          <!-- <div class="author">
+            <img src="https://randomuser.me/api/portraits/men/37.jpg" alt="Marshall2" />
+            <div>
+              <div class="author-name">Marshall Kurniawan</div>
+              <div class="author-title">Mentee</div>
+            </div>
+          </div> -->
+        </div>
+      </div>
+      <button class="arrow right" aria-label="Next" data-slider="3">
+        <svg width="28" height="28" viewBox="0 0 28 28" fill="none">
+          <circle cx="14" cy="14" r="14" fill="#23272f"/>
+          <path d="M11.5 9L16.5 14L11.5 19" stroke="#fff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+        </svg>
+      </button>
+    </div>
+  </div>
+
+      <footer class="footer">
+        <div class="footer__container">
+            <h3 class="footer__title">Pavani Kadari</h3>
+            <p class="footer__copyright">© 2025 Pavani Kadari. All rights reserved.</p>
+            <div class="footer__social-wrapper">
+
+            <div class="social-links">
+                <a href="#" class="social-link"><i class="fab fa-github"></i></a>
+                <a href="#" class="social-link"><i class="fab fa-linkedin"></i></a>
+                <a href="#" class="social-link"><i class="fab fa-twitter"></i></a>
+                <a href="#" class="social-link"><i class="fab fa-instagram"></i></a>
+                <a href="mailto:kadaripavani1@gmail.com" class="social-link"><i class="uil uil-envelope "></i></a>
+            </div>
+
+            </div>
+        </div>
+    </footer>
+
+</body>
+</html>

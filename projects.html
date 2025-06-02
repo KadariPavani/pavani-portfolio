@@ -5,13 +5,19 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Pavani Kadari - Projects</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
     <link rel="stylesheet" href="styles.css">
     <link rel="stylesheet" href="projects.css">
     <link rel="stylesheet" href="modal.css">
 </head>
 <body>
     <!-- Include Header -->
-    <div id="header-placeholder"></div>
+         <header class="header">
+        <button class="modal-close" onclick="window.location.href='index.html'">
+            <i class="fas fa-times"></i>
+        </button>
+    </header>
+    <!-- <div id="header-placeholder"></div> -->
 
     <section id="projects" class="projects-section">
         <h1>Featured <span class="highlight">Projects</span></h1>
@@ -49,6 +55,52 @@
                 <a href="#" class="project-link">Open Live Site <i class="fas fa-external-link-alt"></i></a>
             </div>
             <div class="project-card" data-project-id="project3">
+                <h2>FitTrack</h2>
+                <p>A fitness tracking app with Python & Django.</p>
+                <div class="project-tools">
+                    <span class="tool-icon">🐍</span>
+                    <span class="tool-icon">🌐</span>
+                </div>
+                <div class="project-stats">
+                    <span><i class="fas fa-eye"></i> <span class="view-count">0</span> views</span>
+                    <span><i class="fas fa-heart"></i> <span class="like-count">0</span> likes</span>
+                </div>
+                <button class="btn-project">View Project <i class="fas fa-arrow-right"></i></button>
+                <a href="#" class="project-link">Repository <i class="fas fa-code"></i></a>
+                <a href="#" class="project-link">Open Live Site <i class="fas fa-external-link-alt"></i></a>
+            </div>
+                        <div class="project-card" data-project-id="project4">
+                <h2>Hexcape</h2>
+                <p>A game that combines iOS and physical puzzle game, using 3D, 360 world view, and AR.</p>
+                <div class="project-tools">
+                    <span class="tool-icon">🎮</span>
+                    <span class="tool-icon">📱</span>
+                    <span class="tool-icon">🥽</span>
+                </div>
+                <div class="project-stats">
+                    <span><i class="fas fa-eye"></i> <span class="view-count">0</span> views</span>
+                    <span><i class="fas fa-heart"></i> <span class="like-count">0</span> likes</span>
+                </div>
+                <button class="btn-project">View Project <i class="fas fa-arrow-right"></i></button>
+                <a href="#" class="project-link">Repository <i class="fas fa-code"></i></a>
+                <a href="#" class="project-link">Open Live Site <i class="fas fa-external-link-alt"></i></a>
+            </div>
+            <div class="project-card" data-project-id="project5">
+                <h2>WeatherWise</h2>
+                <p>A weather forecasting app built with React & OpenWeather API.</p>
+                <div class="project-tools">
+                    <span class="tool-icon">⚛️</span>
+                    <span class="tool-icon">🌐</span>
+                </div>
+                <div class="project-stats">
+                    <span><i class="fas fa-eye"></i> <span class="view-count">0</span> views</span>
+                    <span><i class="fas fa-heart"></i> <span class="like-count">0</span> likes</span>
+                </div>
+                <button class="btn-project">View Project <i class="fas fa-arrow-right"></i></button>
+                <a href="#" class="project-link">Repository <i class="fas fa-code"></i></a>
+                <a href="#" class="project-link">Open Live Site <i class="fas fa-external-link-alt"></i></a>
+            </div>
+            <div class="project-card" data-project-id="project6">
                 <h2>FitTrack</h2>
                 <p>A fitness tracking app with Python & Django.</p>
                 <div class="project-tools">
@@ -148,6 +200,24 @@
             </div>
         </div>
     </div>
+
+        <footer class="footer">
+        <div class="footer__container">
+            <h3 class="footer__title">Pavani Kadari</h3>
+            <p class="footer__copyright">© 2025 Pavani Kadari. All rights reserved.</p>
+            <div class="footer__social-wrapper">
+
+            <div class="social-links">
+                <a href="#" class="social-link"><i class="fab fa-github"></i></a>
+                <a href="#" class="social-link"><i class="fab fa-linkedin"></i></a>
+                <a href="#" class="social-link"><i class="fab fa-twitter"></i></a>
+                <a href="#" class="social-link"><i class="fab fa-instagram"></i></a>
+<a href="mailto:kadaripavani1@gmail.com" class="social-link"><i class="fas fa-envelope"></i></a>
+            </div>
+
+            </div>
+        </div>
+    </footer>
 
     <script src="script.js"></script>
     <script>
