@@ -3,104 +3,105 @@
 // Project data
 const projectsData = {
     project1: {
-        title: "Hexcape",
-        subtitle: "A game that combines iOS and physical puzzle game, using 3D, 360 world view, and AR.",
-        teamSize: "Team of 6",
-        explanation: "Hexcape is a unique puzzle game that combines a digital experience with physical elements such as cards and a map. Players must work together as a team to progress through the story, which is inspired by Greek mythology and involves helping a girl become a demigod. The game uses various technologies to provide an immersive gaming experience, including QR codes, image recognition, ARKit, RealityKit, and SceneKit.",
-        goals: "As a team of board game lovers, we want to bring our love of board games to the next level by using innovative technologies such as QR codes, image recognition, ARKit, RealityKit, and SceneKit. Our goal is to create a game that is engaging and immersive, allowing players to feel like they are truly part of the story and the world we have created. We want to bridge the gap between digital and physical gaming experiences.",
-        techStack: "Swift, ARKit, RealityKit, SceneKit, QR Code Scanning, Image Recognition, iOS SDK",
+        title: "Finance Hive",
+        subtitle: "Developing the Finance Management Application to manage the finances based on the user needs.",
+        teamSize: "Team of 9",
+        explanation: "Finance Hive is an innovative finance management application designed to help users manage their finances effectively. ",
+        goals: "The primary goal was to create a user-friendly platform that allows users to track their expenses, set budgets, and gain insights into their financial habits. We aimed to implement robust security measures to protect sensitive financial data.It should be easy to use and accessible to a wide range of users and organizers",
+        techStack: "MongoDB, Express.js, React, Node.js",
         features: [
-            "QR Code Scanning",
-            "Image Recognition",
-            "Augmented Reality with ARKit",
-            "360 World with RealityKit",
-            "Interactive 3D Puzzle Box",
-            "Multiple Endings"
+            "User authentication and profile management",
+            "Expense tracking and categorization",
+            "Payment scheduling",
+            "Users can know their financial status",
+            "Language translation support",
+            "Responsive design for mobile and desktop",
+            "Data visualization with charts and graphs",
+            "Secure data storage and encryption",
+            "Real-time notifications for transactions",
+            "Creditials from the user can be stored in the mails"
+
         ]
     },
     project2: {
-        title: "WeatherWise",
-        subtitle: "A weather forecasting app built with React & OpenWeather API.",
-        teamSize: "Team of 2",
+        title: "Engineering Mathematics",
+        subtitle: "Where you can get the resources for the Engineering Mathematics in diploma.",
+        teamSize: "Solo Project",
         explanation: "WeatherWise is a comprehensive weather application that provides real-time weather data and forecasts. The app features a clean, intuitive interface that displays current weather conditions, hourly forecasts, and extended 7-day predictions. Built with React for optimal performance and user experience.",
         goals: "The primary goal was to create a user-friendly weather application that provides accurate and timely weather information. We wanted to implement modern design principles while ensuring the app remains accessible across all devices and screen sizes.",
-        techStack: "React.js, OpenWeather API, Axios, CSS3, JavaScript ES6+",
+        techStack: "HTML CSS3, JavaScript",
         features: [
-            "Real-time weather data and forecasts",
-            "Location-based weather detection",
-            "7-day extended weather forecast",
-            "Interactive weather maps",
-            "Responsive design for all devices",
-            "Dark/Light mode toggle",
-            "Weather alerts and notifications"
+            "Mathematics resources for diploma students",
+            "Know that about college which college is doing this",
+            "Blog section for latest updates",
+            "Easy accessible for the students about the resources"
         ]
     },
         project3: {
-        title: "FitTrack",
-        subtitle: "A fitness tracking app with Python & Django.",
+        title: "Note Taking App",
+        subtitle: "Where you can manage your notes by doing the CRUD(Create, Read, Update, Delete) operations.",
         teamSize: "Solo Project",
-        explanation: "FitTrack is a comprehensive fitness tracking application that helps users monitor their workout routines, track progress, and achieve their fitness goals. The app provides detailed analytics and personalized recommendations based on user activity.",
-        goals: "The main objective was to create a motivating fitness companion that would help users stay consistent with their workout routines. We aimed to provide comprehensive tracking capabilities while maintaining a simple and engaging user interface.",
-        techStack: "Python, Django, PostgreSQL, Django REST Framework, Chart.js",
+        explanation: "The Note Taking App is a simple yet powerful application that allows users to create, read, update, and delete notes. It provides a clean and intuitive interface for managing personal notes, making it easy to keep track of important information.",
+        goals: "The main goal was to develop a lightweight note-taking application that is easy to use and accessible from any device. The app should allow users to quickly jot down notes, organize them, and retrieve them whenever needed. We aimed for a responsive design that works well on both desktop and mobile devices.",
+        techStack: "HTML, CSS3, JavaScript, FastAPI, MongoDB",
         features: [
-            "Workout routine tracking",
-            "Progress analytics and charts",
-            "Goal setting and achievements",
-            "Exercise library and tutorials",
-            "Social features and challenges",
-            "Nutrition tracking integration",
-            "Wearable device synchronization"
+            "Sign up and login functionality",
+            "Create, read, update, and delete notes",
+            "INtegration with MongoDB for data storage",
+            "User friendly interface with responsive design"
+
         ]
     },
     project4: {
-        title: "FitTrack",
-        subtitle: "A fitness tracking app with Python & Django.",
+        title: "Syllabus Nexus",
+        subtitle: "A web application that recommends academic books based on course syllabi(Exculsively based on KIET-Women library) using machine learning..",
         teamSize: "Solo Project",
-        explanation: "FitTrack is a comprehensive fitness tracking application that helps users monitor their workout routines, track progress, and achieve their fitness goals. The app provides detailed analytics and personalized recommendations based on user activity.",
+        explanation: "",
         goals: "The main objective was to create a motivating fitness companion that would help users stay consistent with their workout routines. We aimed to provide comprehensive tracking capabilities while maintaining a simple and engaging user interface.",
-        techStack: "Python, Django, PostgreSQL, Django REST Framework, Chart.js",
+        techStack: "HTML, CSS, JavaScript, Python, Flask, Machine Learning",
         features: [
-            "Workout routine tracking",
-            "Progress analytics and charts",
-            "Goal setting and achievements",
-            "Exercise library and tutorials",
-            "Social features and challenges",
-            "Nutrition tracking integration",
-            "Wearable device synchronization"
+            "Exclusive book recommendations based on course syllabi from KIET-W",
+            "Machine learning algorithms to analyze syllabi and suggest relevant books",
+            "User-friendly interface for easy navigation",
+            "Selecting the best book based on the syllabus and regulations",
+            "For both btech and diploma students",
+
         ]
     },
         project5: {
-        title: "FitTrack",
-        subtitle: "A fitness tracking app with Python & Django.",
+        title: "Object Detection",
+        subtitle: "Creating a custom Yolov5 model to detect objects in images and videos.",
         teamSize: "Solo Project",
         explanation: "FitTrack is a comprehensive fitness tracking application that helps users monitor their workout routines, track progress, and achieve their fitness goals. The app provides detailed analytics and personalized recommendations based on user activity.",
         goals: "The main objective was to create a motivating fitness companion that would help users stay consistent with their workout routines. We aimed to provide comprehensive tracking capabilities while maintaining a simple and engaging user interface.",
-        techStack: "Python, Django, PostgreSQL, Django REST Framework, Chart.js",
+        techStack: "OpenCV, TensorFlow, Python, Yolov5",
         features: [
-            "Workout routine tracking",
-            "Progress analytics and charts",
-            "Goal setting and achievements",
-            "Exercise library and tutorials",
-            "Social features and challenges",
-            "Nutrition tracking integration",
-            "Wearable device synchronization"
+            "Detectin objects in images and videos",
+            "High accuracy and performance",
+            "Custom Yolov5 model trained on specific datasets",
+            "User-friendly interface for uploading images and videos",
+            "Real-time object detection capabilities",
+            "Integration with popular frameworks like OpenCV and TensorFlow",
+            "Support for multiple object classes",
+            "Ability to visualize detection results with bounding boxes"
         ]
     },
         project6: {
-        title: "FitTrack",
-        subtitle: "A fitness tracking app with Python & Django.",
+        title: "Sentiment Analysis",
+        subtitle: "Where it can identitfy the sentiment of the text as positive, negative or neutral.",
         teamSize: "Solo Project",
         explanation: "FitTrack is a comprehensive fitness tracking application that helps users monitor their workout routines, track progress, and achieve their fitness goals. The app provides detailed analytics and personalized recommendations based on user activity.",
         goals: "The main objective was to create a motivating fitness companion that would help users stay consistent with their workout routines. We aimed to provide comprehensive tracking capabilities while maintaining a simple and engaging user interface.",
-        techStack: "Python, Django, PostgreSQL, Django REST Framework, Chart.js",
+        techStack: "Python, Natural Language Processing",
         features: [
-            "Workout routine tracking",
-            "Progress analytics and charts",
-            "Goal setting and achievements",
-            "Exercise library and tutorials",
-            "Social features and challenges",
-            "Nutrition tracking integration",
-            "Wearable device synchronization"
+           "Sentiment analysis of text data",
+            "Classification of text as positive, negative, or neutral",
+            "Integration with Django for web-based applications",
+            "Visualization of sentiment analysis results using Chart.js",
+            "User-friendly interface for inputting text data",
+            "Support for multiple languages and text formats",
+            "Ability to analyze large datasets efficiently",
+            "Real-time sentiment analysis capabilities"
         ]
     }
 };
