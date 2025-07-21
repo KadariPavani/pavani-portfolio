@@ -23,12 +23,33 @@ const projectsData = {
 
         ]
     },
-    project2: {
+
+
+        project2: {
+        title: "Gemini AI chatbot",
+        subtitle: " A sleek, modern web-based chatbot powered by Google's Gemini AI with full chat history management and responsive design.",
+        teamSize: "Solo Project",
+        explanation: "Gemini AI Chatbot is a sleek, modern web-based chatbot powered by Google's Gemini AI. It features full chat history management, responsive design, and a user-friendly interface. The chatbot allows users to engage in natural conversations with AI, providing real-time responses and a seamless chat experience. The application is designed to be lightweight and easy to use, making it accessible on both desktop and mobile devices. The chatbot supports multi-line messages, code formatting, and various text styles, enhancing the user interaction experience. It also includes a history management system that allows users to save, view, and manage their chat conversations easily.",
+        goals: " The primary goal was to create a user-friendly chatbot that leverages the power of Google's Gemini AI to provide accurate and engaging responses. We aimed to implement a modern design with smooth animations and responsive layout, ensuring the chatbot is accessible on all devices. The application should allow users to easily manage their chat history while providing a seamless and interactive experience.",
+        techStack: "HTML, CSS, JavaScript, Google Gemini API, Local Storage",
+        features: [
+            "AI-powered conversations with Google Gemini",
+            "Chat history management with save, view, and delete options",
+            "Responsive design for desktop and mobile devices",
+            "Multi-line message support and text formatting",
+            "Real-time typing indicators",
+            "Modern UI with smooth animations and gradient design",
+            "Local storage for chat persistence",
+            "No server-side dependencies, fully client-side application",
+            "Supports multiple chat sessions with quick switching",
+        ]
+    },
+    project3: {
         title: "Engineering Mathematics",
         subtitle: "Where you can get the resources for the Engineering Mathematics in diploma.",
         teamSize: "Solo Project",
-        explanation: "WeatherWise is a comprehensive weather application that provides real-time weather data and forecasts. The app features a clean, intuitive interface that displays current weather conditions, hourly forecasts, and extended 7-day predictions. Built with React for optimal performance and user experience.",
-        goals: "The primary goal was to create a user-friendly weather application that provides accurate and timely weather information. We wanted to implement modern design principles while ensuring the app remains accessible across all devices and screen sizes.",
+        explanation: "Engineering Mathematics is a web application designed to provide diploma students with easy access to mathematics resources. The application features a clean and modern design, making it user-friendly and accessible across all devices. It includes a blog section for the latest updates and resources related to engineering mathematics, ensuring students have the most relevant information at their fingertips. The app is built with a focus on simplicity and ease of navigation, allowing students to quickly find the resources they need.",
+        goals: " The main goal was to create a comprehensive resource hub for diploma students studying engineering mathematics. The application should provide easy access to study materials, updates, and relevant information about colleges offering these resources. We aimed to develop a platform that is not only informative but also engaging, encouraging students to explore and utilize the available resources effectively.",
         techStack: "HTML CSS3, JavaScript",
         features: [
             "Mathematics resources for diploma students",
@@ -37,7 +58,7 @@ const projectsData = {
             "Easy accessible for the students about the resources"
         ]
     },
-        project3: {
+        project4: {
         title: "Note Taking App",
         subtitle: "Where you can manage your notes by doing the CRUD(Create, Read, Update, Delete) operations.",
         teamSize: "Solo Project",
@@ -52,7 +73,7 @@ const projectsData = {
 
         ]
     },
-    project4: {
+    project5: {
         title: "Syllabus Nexus",
         subtitle: "A web application that recommends academic books based on course syllabi(Exculsively based on KIET-Women library) using machine learning..",
         teamSize: "Solo Project",
@@ -68,15 +89,21 @@ const projectsData = {
 
         ]
     },
-        project5: {
+
+// Object detection is one of the most basic and central task in computer vision. Its task is to find all the interested objects in the image, and determine the category and location of the objects. Object detection is widely used and has strong practical value and research prospects. Applications include face detection and vehicle detection.
+//        In recent years, with the development of convolutional neural network, significant breakthroughs have been made in object detection. This paper describes in detail the classification of object detection algorithms based on deep learning. The algorithms are mainly divided into one-stage object algorithm and two-stage object algorithm, and the general data sets and performance indicators of object detection.
+//       This YOLOv5 is an Open Source/Pre-defined model to detect the objects that what we want to be detect. It should be pre-trained by 80 classes in this model to detect.
+
+
+        project6: {
         title: "Object Detection",
-        subtitle: "Creating a custom Yolov5 model to detect objects in images and videos.",
+        subtitle: "Creating a custom Yolov5 model to detect MASK and NO MASK in the images and videos.",
         teamSize: "Solo Project",
-        explanation: "FitTrack is a comprehensive fitness tracking application that helps users monitor their workout routines, track progress, and achieve their fitness goals. The app provides detailed analytics and personalized recommendations based on user activity.",
-        goals: "The main objective was to create a motivating fitness companion that would help users stay consistent with their workout routines. We aimed to provide comprehensive tracking capabilities while maintaining a simple and engaging user interface.",
+        explanation: " Object Detection is a computer vision application that uses machine learning to identify and locate objects within images and videos. This project involved creating a custom Yolov5 model trained on specific datasets to achieve high accuracy in object detection tasks. The application allows users to upload images and videos for real-time object detection, providing bounding boxes around detected objects.",
+        goals: " The primary goal was to develop a robust object detection application that can accurately identify and classify objects in images and videos. We aimed to create a user-friendly interface that allows users to easily upload media files and visualize detection results. The application should support real-time detection capabilities and be compatible with popular machine learning frameworks like OpenCV and TensorFlow.",
         techStack: "OpenCV, TensorFlow, Python, Yolov5",
         features: [
-            "Detectin objects in images and videos",
+            "DetectinG objects in images and videos for the person who are wearing the MASK and NO MASK",
             "High accuracy and performance",
             "Custom Yolov5 model trained on specific datasets",
             "User-friendly interface for uploading images and videos",
@@ -86,12 +113,15 @@ const projectsData = {
             "Ability to visualize detection results with bounding boxes"
         ]
     },
-        project6: {
+
+
+
+        project7: {
         title: "Sentiment Analysis",
         subtitle: "Where it can identitfy the sentiment of the text as positive, negative or neutral.",
         teamSize: "Solo Project",
-        explanation: "FitTrack is a comprehensive fitness tracking application that helps users monitor their workout routines, track progress, and achieve their fitness goals. The app provides detailed analytics and personalized recommendations based on user activity.",
-        goals: "The main objective was to create a motivating fitness companion that would help users stay consistent with their workout routines. We aimed to provide comprehensive tracking capabilities while maintaining a simple and engaging user interface.",
+        explanation: "Sentiment Analysis is a text-based application that uses natural language processing to classify user input as Positive, Negative, or Neutral. It provides real-time sentiment analysis capabilities and visualizes results using charts.",
+        goals: " The primary goal was to develop a robust sentiment analysis tool that can accurately classify text data. We aimed to create a user-friendly interface that allows users to input text and receive instant feedback on sentiment. The application should also support multiple languages and formats, making it versatile for various use cases.",
         techStack: "Python, Natural Language Processing",
         features: [
            "Sentiment analysis of text data",
