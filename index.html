@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -11,12 +12,13 @@
     <link rel="import" href="layout.html">
     <script src="script.js" defer></script>
 </head>
+
 <body>
     <!-- Header -->
     <nav class="navbar">
         <div class="nav-links">
-            <a href="#home" class="nav-link active">Home</a>
-            <a href="#about" class="nav-link">About</a>
+            <a href="index.html#home" class="nav-link active">Home</a>
+            <a href="index.html#about" class="nav-link">About</a>
             <!-- <a href="#skills" class="nav-link">Skills</a> -->
             <a href="projects.html" class="nav-link">Projects</a>
             <div class="dropdown">
@@ -31,11 +33,9 @@
             </div>
         </div>
     </nav>
-
     <div class="mobile-menu-btn">
         Menu <i class="fas fa-chevron-down"></i>
     </div>
-
     <div class="mobile-menu">
         <div class="mobile-menu-content">
             <div class="menu-item" data-href="#home">
@@ -90,7 +90,6 @@
             </div> -->
         </div>
     </div>
-
     <!-- Hero Section -->
     <section id="home" class="hero-section">
         <div class="status-badge">
@@ -98,17 +97,23 @@
             <span>BTech 4th Year Student</span>
             <i class="fas fa-check-circle status-icon"></i>
         </div>
-
         <div class="hero-content">
             <h1 class="hero-title">I'm Pavani Kadari</h1>
             <p class="hero-description">
-                I'm a BTech 4th year student passionate about technology and innovation. 
-                I love learning new technologies, building projects, and exploring the endless 
+                I'm a BTech 4th year student passionate about technology and innovation.
+                I love learning new technologies, building projects, and exploring the endless
                 possibilities in the world of computer science and engineering.
             </p>
             <div class="hero-buttons">
                 <button class="btn-primary">View Projects <i class="fas fa-arrow-right"></i></button>
-                <button class="btn-secondary">More about me <i class="fas fa-user"></i></button>
+                <!-- View Resume Button -->
+                <!-- <a href="Resume_PavaniKadari.pdf" target="_blank" class="btn-secondary">
+        View Resume <i class="fas fa-file-alt"></i>
+    </a> -->
+                <!-- Download Resume Button -->
+                <a href="Resume_PavaniKadari.pdf" download class="btn-primary">
+                    Download Resume <i class="fas fa-download"></i>
+                </a>
             </div>
             <div class="social-links">
                 <a href="#" class="social-link"><i class="fab fa-github"></i></a>
@@ -117,54 +122,52 @@
                 <a href="#" class="social-link"><i class="fab fa-instagram"></i></a>
             </div>
         </div>
-
-<div class="floating-elements">
-    <!-- <div class="floating-text">Hello,Pavani Here..!</div> -->
-    <div class="tech-icon icon-html"><i class="fab fa-html5"></i></div>
-    <div class="tech-icon icon-css"><i class="fab fa-css3-alt"></i></div>
-    <div class="tech-icon icon-js"><i class="fab fa-js"></i></div>
-    <div class="tech-icon icon-python"><i class="fab fa-python"></i></div>
-    <div class="tech-icon icon-java"><i class="fab fa-java"></i></div>
-    <div class="tech-icon icon-c">C</div>
-    <div class="tech-icon icon-cpp">C++</div>
-    <div class="tech-icon icon-react"><i class="fab fa-react"></i></div>
-    <div class="tech-icon icon-node"><i class="fab fa-node"></i></div>
-    <div class="tech-icon icon-git"><i class="fab fa-git-alt"></i></div>
-    <div class="geometric-shape shape-1"></div>
-    <div class="geometric-shape shape-2"></div>
-    <div class="geometric-shape shape-3"></div>
-</div>
-
+        <div class="floating-elements">
+            <!-- <div class="floating-text">Hello,Pavani Here..!</div> -->
+            <div class="tech-icon icon-html"><i class="fab fa-html5"></i></div>
+            <div class="tech-icon icon-css"><i class="fab fa-css3-alt"></i></div>
+            <div class="tech-icon icon-js"><i class="fab fa-js"></i></div>
+            <div class="tech-icon icon-python"><i class="fab fa-python"></i></div>
+            <div class="tech-icon icon-java"><i class="fab fa-java"></i></div>
+            <div class="tech-icon icon-c">C</div>
+            <div class="tech-icon icon-cpp">C++</div>
+            <div class="tech-icon icon-react"><i class="fab fa-react"></i></div>
+            <div class="tech-icon icon-node"><i class="fab fa-node"></i></div>
+            <div class="tech-icon icon-git"><i class="fab fa-git-alt"></i></div>
+            <div class="geometric-shape shape-1"></div>
+            <div class="geometric-shape shape-2"></div>
+            <div class="geometric-shape shape-3"></div>
+        </div>
     </section>
-
-   <!-- About Section -->
+    <!-- About Section -->
     <section id="about" class="about-section">
-            <h2 class="section-title"><span class="highlight">About</span> Me</h2>
-    <div class="about-content">
-        <!-- <div class="about-image-wrapper">
+        <h2 class="section-title"><span class="highlight">About</span> Me</h2>
+        <div class="about-content">
+            <!-- <div class="about-image-wrapper">
             <img src="./Pavani.jpg" alt="Pavani Kadari" class="about-image">
         </div> -->
-        <div class="about-text">
-            <p class="about-description">
-                Hello! You can call me Pavani. I am a BTech 4th year student passionate about technology and innovation. 
-                I love learning new technologies, building projects, and exploring the endless possibilities in the world of computer science and engineering.
-            </p>
-                            <div class="tech-stack">
+            <div class="about-text">
+                <p class="about-description">
+                    Hello! You can call me Pavani. I am a BTech 4th year student passionate about technology and
+                    innovation.
+                    I love learning new technologies, building projects, and exploring the endless possibilities in the
+                    world of computer science and engineering.
+                </p>
+                <div class="tech-stack">
                     <span class="tech-icon">P</span>
                     <span class="tech-icon">A</span>
                     <span class="tech-icon">N</span>
                     <span class="tech-icon">N</span>
                     <span class="tech-icon">U</span>
                 </div>
+            </div>
         </div>
-    </div>
-    <div class="text-center">
-        <button class="btn-secondary more-about" onclick="window.location.href='about.html'">
-            More about me <i class="fas fa-user"></i>
-        </button>
-    </div>
-</section>
-
+        <div class="text-center">
+            <button class="btn-secondary more-about" onclick="window.location.href='about.html'">
+                More about me <i class="fas fa-user"></i>
+            </button>
+        </div>
+    </section>
     <!-- Qualification Section -->
     <!-- <section id="skills" class="qualification-section">
         <h2 class="qualification-title">Qualification</h2>
@@ -198,14 +201,12 @@
             </div>
         </div>
     </section> -->
-
-
     <!-- Projects Section -->
     <section id="projects" class="projects-section">
         <h2 class="section-title"><span class="highlight">Featured</span> Projects</h2>
         <p class="section-subtitle">A selection of projects that I've worked on.</p>
         <div class="projects-grid">
-             <div class="project-card" data-project-id="project1">
+            <div class="project-card" data-project-id="project1">
                 <h2>Finance Hive</h2>
                 <p>Developing a finance management app to track expenses, set budgets, and manage payments securely.</p>
 
@@ -214,8 +215,10 @@
                     <span><i class="fas fa-heart"></i> <span class="like-count">0</span> likes</span>
                 </div>
                 <button class="btn-project">View Project <i class="fas fa-arrow-right"></i></button>
-                <a href="#" class="project-link">Repository <i class="fas fa-code"></i></a>
-                <a href="#" class="project-link">Open Live Site <i class="fas fa-external-link-alt"></i></a>
+                <a href="https://github.com/KadariPavani/Finance-Hive.git" class="project-link"
+                    target="_blank">Repository <i class="fas fa-code"></i></a>
+                <a href="https://financehive-fh.vercel.app/" class="project-link" target="_blank">Open Live Site <i
+                        class="fas fa-external-link-alt"></i></a>
             </div>
 
             <div class="project-card" data-project-id="project2">
@@ -232,13 +235,14 @@
                     <span><i class="fas fa-heart"></i> <span class="like-count">0</span> likes</span>
                 </div>
                 <button class="btn-project">View Project <i class="fas fa-arrow-right"></i></button>
-                <a href="#" class="project-link">Repository <i class="fas fa-code"></i></a>
-                <a href="#" class="project-link">Open Live Site <i class="fas fa-external-link-alt"></i></a>
+                <a href="https://github.com/KadariPavani/chatbot-geminiAPI.git" class="project-link"
+                    target="_blank">Repository <i class="fas fa-code"></i></a>
+                <a href="https://kadaripavani.github.io/chatbot-geminiAPI/BOT.html" class="project-link"
+                    target="_blank">Open Live Site <i class="fas fa-external-link-alt"></i></a>
             </div>
         </div>
         <button class="btn-see-more">See more projects <i class="fas fa-arrow-right"></i></button>
     </section>
-
     <!-- Project Modal -->
     <div class="project-modal">
         <div class="project-modal-content">
@@ -249,12 +253,13 @@
                 <div class="modal-stats">
                     <span class="team-size"></span>
                     <span><i class="fas fa-eye"></i> <span class="view-count">0</span> views</span>
-                    <span><i class="fas fa-heart"></i> <span class="like-count">0</span> likes <button class="like-button"><i class="fas fa-heart"></i></button></span>
+                    <span><i class="fas fa-heart"></i> <span class="like-count">0</span> likes <button
+                            class="like-button"><i class="fas fa-heart"></i></button></span>
                 </div>
-                <div class="modal-links">
+                <!-- <div class="modal-links">
                     <a href="#" class="modal-link">Open Live Site <i class="fas fa-external-link-alt"></i></a>
                     <a href="#" class="modal-link">Demo Video <i class="fas fa-video"></i></a>
-                </div>
+                </div> -->
                 <div class="modal-content-wrapper">
                     <div class="content-column">
                         <div class="content-section">
@@ -292,53 +297,49 @@
             </div>
         </div>
     </div>
-
-<section id="academic-achievements" class="achievements-section">
-            <h2 class="section-title"><span class="highlight">Academic</span> Achievements</h2>
-<div class="achievement">
-    <div class="achievement-content">
-        <div class="achievement-date">December 2024</div>
-        <h3 class="achievement-title">1st Place in Edyst Python Hackathon</h3>
-        <p class="achievement-description">Secured first place in a national-level Edyst Hackathon by developing a robust Python-based solution that outperformed 100+ participants.</p>
-        <div class="achievement-skills">
-            <span class="icon"></span>
-            <span>Skills:</span>
-            <div class="skills-list">
-                <span class="skill">Python</span>
-                <span class="skill">Problem Solving</span>
+    <section id="academic-achievements" class="achievements-section">
+        <h2 class="section-title"><span class="highlight">Academic</span> Achievements</h2>
+        <div class="achievement">
+            <div class="achievement-content">
+                <div class="achievement-date">December 2024</div>
+                <h3 class="achievement-title">1st Place in Edyst Python Hackathon</h3>
+                <p class="achievement-description">Secured first place in a national-level Edyst Hackathon by developing
+                    a robust Python-based solution that outperformed 100+ participants.</p>
+                <div class="achievement-skills">
+                    <span class="icon"></span>
+                    <span>Skills:</span>
+                    <div class="skills-list">
+                        <span class="skill">Python</span>
+                        <span class="skill">Problem Solving</span>
+                    </div>
+                </div>
             </div>
+            <img src="./images/Edyst.jpg" alt="Edyst Hackathon" class="achievement-image">
         </div>
-    </div>
-    <img src="./images/Edyst.jpg" alt="Edyst Hackathon" class="achievement-image">
-</div>
-
-<div class="achievement">
-    <div class="achievement-content">
-        <div class="achievement-date">November 2024</div>
-        <h3 class="achievement-title">Completed FMML with Outstanding Grade</h3>
-        <p class="achievement-description">Achieved Grade 'O' in the prestigious Foundations of Modern Machine Learning course, gaining expertise in core ML algorithms and model optimization.</p>
-        <div class="achievement-skills">
-            <span class="icon"></span>
-            <span>Skills:</span>
-            <div class="skills-list">
-                <span class="skill">Machine Learning</span>
-                <span class="skill">Model Optimization</span>
+        <div class="achievement">
+            <div class="achievement-content">
+                <div class="achievement-date">November 2024</div>
+                <h3 class="achievement-title">Completed FMML with Outstanding Grade</h3>
+                <p class="achievement-description">Achieved Grade 'O' in the prestigious Foundations of Modern Machine
+                    Learning course, gaining expertise in core ML algorithms and model optimization.</p>
+                <div class="achievement-skills">
+                    <span class="icon"></span>
+                    <span>Skills:</span>
+                    <div class="skills-list">
+                        <span class="skill">Machine Learning</span>
+                        <span class="skill">Model Optimization</span>
+                    </div>
+                </div>
             </div>
+            <img src="./images/FMML.jpg" alt="FMML Certification" class="achievement-image">
         </div>
-    </div>
-    <img src="./images/FMML.jpg" alt="FMML Certification" class="achievement-image">
-</div>
-            <a href="academicAchievements.html" class="see-more">See more achievements <span class="arrow"></span></a>
-        </section>
-
-  
-    
-<section class="internship-section" id="internship">
-            <h2 class="section-title"><span class="highlight">Internships</span></h2>
-    <p class="section-subtitle">My Internship Completions</p>
-
-    <div class="internship-list">
-        <!-- Internship 1 -->
+        <a href="academicAchievements.html" class="see-more">See more achievements <span class="arrow"></span></a>
+    </section>
+    <section class="internship-section" id="internship">
+        <h2 class="section-title"><span class="highlight">Internships</span></h2>
+        <p class="section-subtitle">My Internship Completions</p>
+        <div class="internship-list">
+            <!-- Internship 1 -->
         <div class="internship-item">
             <h2 class="internship-title">AI with Python</h2>
             <div class="internship-details" data-bg-image="https://placehold.co/350x400/png?text=AI+with+Python+Internship&font=montserrat">
@@ -350,51 +351,46 @@
                     <i class="uil uil-calendar-alt"></i>
                     01-10-2021 to 30-11-2021
                 </div>
-                <a href="https://drive.google.com/file/d/1Agn5oZevQTGiUfEgbk_rY_sS9X9TuExV/view?usp=share_link">View Certificate</a>
+                <!-- <a href="https://drive.google.com/file/d/1Agn5oZevQTGiUfEgbk_rY_sS9X9TuExV/view?usp=share_link">View Certificate</a> -->
             </div>
         </div>
 
         <!-- Internship 2 -->
         <div class="internship-item">
-            <h2 class="internship-title">Web Development Intern</h2>
+            <h2 class="internship-title">Winter Intern</h2>
             <div class="internship-details" data-bg-image="https://placehold.co/350x400/png?text=Web+Development+Internship&font=montserrat">
                 <p>
-                    I worked as a Web Development Intern at TechCorp, focusing on building responsive websites using React.
+                    I worked as a winter Intern at IIIT-Hyderabad RCTS where i worked and Analysing the code of Autism Screening Tool for Early detection and Follow up care
                 </p>
                 <h3 class="qualification-title">Internship</h3>
                 <div class="qualification-calendar">
                     <i class="uil uil-calendar-alt"></i>
-                    01-06-2022 to 31-07-2022
+                    05-12-2024 to 05-01-2025
                 </div>
-                <a href="https://drive.google.com/file/d/placeholder-link/view?usp=share_link">View Certificate</a>
+                <!-- <a href="https://drive.google.com/file/d/placeholder-link/view?usp=share_link">View Certificate</a> -->
             </div>
         </div>
-    </div>
-
-    <div class="more-internships">
-        <a href="internships.html" class="btn-secondary">View More Internships</a>
-    </div>
-</section>
-
+        </div>
+        <div class="more-internships">
+            <a href="internships.html" class="btn-secondary">View More Internships</a>
+        </div>
+    </section>
     <footer class="footer">
         <div class="footer__container">
             <h3 class="footer__title">Pavani Kadari</h3>
             <p class="footer__copyright">© 2025 Pavani Kadari. All rights reserved.</p>
             <div class="footer__social-wrapper">
-
-            <div class="social-links">
-                <a href="#" class="social-link"><i class="fab fa-github"></i></a>
-                <a href="#" class="social-link"><i class="fab fa-linkedin"></i></a>
-                <a href="#" class="social-link"><i class="fab fa-twitter"></i></a>
-                <a href="#" class="social-link"><i class="fab fa-instagram"></i></a>
-<a href="mailto:kadaripavani1@gmail.com" class="social-link"><i class="fas fa-envelope"></i></a>
-            </div>
+                <div class="social-links">
+                    <a href="#" class="social-link"><i class="fab fa-github"></i></a>
+                    <a href="#" class="social-link"><i class="fab fa-linkedin"></i></a>
+                    <a href="#" class="social-link"><i class="fab fa-twitter"></i></a>
+                    <a href="#" class="social-link"><i class="fab fa-instagram"></i></a>
+                    <a href="mailto:kadaripavani1@gmail.com" class="social-link"><i class="fas fa-envelope"></i></a>
+                </div>
 
             </div>
         </div>
     </footer>
+</body>
 
-
-
-    </body>
 </html>
